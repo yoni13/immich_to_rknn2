@@ -20,7 +20,6 @@ if ret != 0:
     print("Load failed!")
     exit(ret)
 
-
 ret = rknn.build(do_quantization=False)
 
 if ret != 0:

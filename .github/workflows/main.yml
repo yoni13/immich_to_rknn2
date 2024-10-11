@@ -1,42 +1,52 @@
 name: Run Python Script
-
-on:
-  push:
-    branches:
-      - main
+true:
   pull_request:
     branches:
-      - main
-
+    - main
+  push:
+    branches:
+    - main
 jobs:
   run-python-script:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
-
+        python-version: 3.x
     - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        python3 -m pip install --upgrade pip setuptools
-        sudo apt-get update -y
-        sudo apt-get install git ffmpeg libsm6 libxext6 -y
-        
+      run: 'python -m pip install --upgrade pip
 
-    - name: Run script
-      run: python main.py
-      
-    - name: Upload artifact
+        pip install -r requirements.txt
+
+        python3 -m pip install --upgrade pip setuptools
+
+        sudo apt-get update -y
+
+        sudo apt-get install git ffmpeg libsm6 libxext6 -y
+
+        git lfs install
+
+        '
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli
+    - name: Run textual build script
+      run: python build_rknn.py ViT-L-16-SigLIP-384__webli/textual/model.onnx
+    - name: Upload textual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ViT-L-16-SigLIP-384__webli
-        path: |
-          ViT-L-16-SigLIP-384__webli/textual/model.rknn
-          # ViT-L-16-SigLIP-384__webli/visual/model.rknn
+        name: rknn-model0
+        path: ViT-L-16-SigLIP-384__webli/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-L-16-SigLIP-384__webli/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-L-16-SigLIP-384__webli/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: rknn-model0
+        path: ViT-L-16-SigLIP-384__webli/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-L-16-SigLIP-384__webli/visual/model.rknn
