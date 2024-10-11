@@ -1,9 +1,10 @@
 import yaml
+import time
 
 # 讀取 YAML 檔案
 with open('base.yml', 'r') as file:
     data = yaml.safe_load(file)
-
+    file.close()
 
 repo_name = ['ViT-L-16-SigLIP-384__webli']
 repo_url = ['https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli']
@@ -74,3 +75,18 @@ for i in range(len(repo_name)):
 # 寫回 YAML 檔案
 with open('.github/workflows/main.yml', 'w') as file:
     yaml.safe_dump(data, file)
+    file.close()
+
+with open('.github/workflows/main.yml', 'a') as file:
+    file.write('''on:
+  pull_request:
+    branches:
+    - main
+  push:
+    branches:
+    - main''')
+    
+    # add time to the end of the file
+    file.write('\n\n')
+    file.write(f'# Last updated at: {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())}')
+    file.close()

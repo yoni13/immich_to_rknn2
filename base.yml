@@ -1,12 +1,5 @@
-name: Run Python Script
+name: Run Python Build Script
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   run-python-script:
@@ -30,19 +23,3 @@ jobs:
         sudo apt-get install git ffmpeg libsm6 libxext6 -y
         git lfs install
 
-    # - name: Clone model
-    #   run: git clone https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli
-
-    # - name: Run script
-    #   run: python build_rknn.py ./ViT-L-16-SigLIP-384__webli/textual/model.onnx
-      
-    # - name: Upload artifact
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: ViT-L-16-SigLIP-384__webli
-    #     path: |
-    #       ViT-L-16-SigLIP-384__webli/textual/model.rknn
-    #       # ViT-L-16-SigLIP-384__webli/visual/model.rknn
-          
-    # - name: Delete model
-    #   run: rm ViT-L-16-SigLIP-384__webli/textual/model.rknn

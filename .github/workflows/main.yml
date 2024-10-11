@@ -1,11 +1,3 @@
-name: Run Python Script
-true:
-  pull_request:
-    branches:
-    - main
-  push:
-    branches:
-    - main
 jobs:
   run-python-script:
     runs-on: ubuntu-latest
@@ -50,3 +42,13 @@ jobs:
         path: ViT-L-16-SigLIP-384__webli/visual/model.rknn
     - name: Remove uploaded visual model
       run: rm ViT-L-16-SigLIP-384__webli/visual/model.rknn
+name: Run Python Build Script
+on:
+  pull_request:
+    branches:
+    - main
+  push:
+    branches:
+    - main
+
+# Last updated at: 2024-10-11 18:34:57
