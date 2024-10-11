@@ -1,9 +1,6 @@
 import os
 import subprocess
 import shutil
-
-subprocess.run(["sudo", "apt-get", "update","-y"])
-subprocess.run(["sudo", "apt-get", "install", "git","ffmpeg", "libsm6","libxext6","-y"])
 subprocess.run(["git", "lfs", "install"])
 
 
@@ -15,6 +12,7 @@ def download_and_build_rknn(repo_name,repo_url):
         subprocess.run(["python3", "build_rknn.py", "--model", "textual/model.onnx"])
     if os.path.islink("visual"):
         subprocess.run(["python3", "build_rknn.py", "--model", "visual/model.onnx"])
+    subprocess.run(["ls"])
     os.chdir("..")
     shutil.rmtree(repo_name)
 
