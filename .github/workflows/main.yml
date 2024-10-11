@@ -23,93 +23,93 @@ jobs:
 
         '
     - name: Clone model
-      run: git clone https://huggingface.co/immich-app/M-CLIP/LABSE-Vit-L-14
+      run: git clone https://huggingface.co/immich-app/LABSE-Vit-L-14
     - name: Run textual build script
-      run: python build_rknn.py M-CLIP/LABSE-Vit-L-14/textual/model.onnx
+      run: python build_rknn.py LABSE-Vit-L-14/textual/model.onnx
     - name: Upload textual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: M-CLIP/LABSE-Vit-L-14-textual.rknn
-        path: M-CLIP/LABSE-Vit-L-14/textual/model.rknn
+        name: LABSE-Vit-L-14-textual.rknn
+        path: LABSE-Vit-L-14/textual/model.rknn
     - name: Remove uploaded textual model
-      run: rm M-CLIP/LABSE-Vit-L-14/textual/model.rknn
+      run: rm LABSE-Vit-L-14/textual/model.rknn
     - name: Run visual build script
-      run: python build_rknn.py M-CLIP/LABSE-Vit-L-14/visual/model.onnx
+      run: python build_rknn.py LABSE-Vit-L-14/visual/model.onnx
     - name: Upload visual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: M-CLIP/LABSE-Vit-L-14-visual.rknn
-        path: M-CLIP/LABSE-Vit-L-14/visual/model.rknn
+        name: LABSE-Vit-L-14-visual.rknn
+        path: LABSE-Vit-L-14/visual/model.rknn
     - name: Remove uploaded visual model
-      run: rm M-CLIP/LABSE-Vit-L-14/visual/model.rknn
+      run: rm LABSE-Vit-L-14/visual/model.rknn
     - name: RM cloned repo
-      run: rm -rf M-CLIP/LABSE-Vit-L-14
+      run: rm -rf LABSE-Vit-L-14
     - name: Clone model
-      run: git clone https://huggingface.co/immich-app/M-CLIP/XLM-Roberta-Large-Vit-B-16Plus
+      run: git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
     - name: Run textual build script
-      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/textual/model.onnx
+      run: python build_rknn.py XLM-Roberta-Large-Vit-B-16Plus/textual/model.onnx
     - name: Upload textual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: M-CLIP/XLM-Roberta-Large-Vit-B-16Plus-textual.rknn
-        path: M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/textual/model.rknn
+        name: XLM-Roberta-Large-Vit-B-16Plus-textual.rknn
+        path: XLM-Roberta-Large-Vit-B-16Plus/textual/model.rknn
     - name: Remove uploaded textual model
-      run: rm M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/textual/model.rknn
+      run: rm XLM-Roberta-Large-Vit-B-16Plus/textual/model.rknn
     - name: Run visual build script
-      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/visual/model.onnx
+      run: python build_rknn.py XLM-Roberta-Large-Vit-B-16Plus/visual/model.onnx
     - name: Upload visual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: M-CLIP/XLM-Roberta-Large-Vit-B-16Plus-visual.rknn
-        path: M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/visual/model.rknn
+        name: XLM-Roberta-Large-Vit-B-16Plus-visual.rknn
+        path: XLM-Roberta-Large-Vit-B-16Plus/visual/model.rknn
     - name: Remove uploaded visual model
-      run: rm M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/visual/model.rknn
+      run: rm XLM-Roberta-Large-Vit-B-16Plus/visual/model.rknn
     - name: RM cloned repo
-      run: rm -rf M-CLIP/XLM-Roberta-Large-Vit-B-16Plus
+      run: rm -rf XLM-Roberta-Large-Vit-B-16Plus
     - name: Clone model
-      run: git clone https://huggingface.co/immich-app/M-CLIP/XLM-Roberta-Large-Vit-B-32
+      run: git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-32
     - name: Run textual build script
-      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-B-32/textual/model.onnx
+      run: python build_rknn.py XLM-Roberta-Large-Vit-B-32/textual/model.onnx
     - name: Upload textual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: M-CLIP/XLM-Roberta-Large-Vit-B-32-textual.rknn
-        path: M-CLIP/XLM-Roberta-Large-Vit-B-32/textual/model.rknn
+        name: XLM-Roberta-Large-Vit-B-32-textual.rknn
+        path: XLM-Roberta-Large-Vit-B-32/textual/model.rknn
     - name: Remove uploaded textual model
-      run: rm M-CLIP/XLM-Roberta-Large-Vit-B-32/textual/model.rknn
+      run: rm XLM-Roberta-Large-Vit-B-32/textual/model.rknn
     - name: Run visual build script
-      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-B-32/visual/model.onnx
+      run: python build_rknn.py XLM-Roberta-Large-Vit-B-32/visual/model.onnx
     - name: Upload visual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: M-CLIP/XLM-Roberta-Large-Vit-B-32-visual.rknn
-        path: M-CLIP/XLM-Roberta-Large-Vit-B-32/visual/model.rknn
+        name: XLM-Roberta-Large-Vit-B-32-visual.rknn
+        path: XLM-Roberta-Large-Vit-B-32/visual/model.rknn
     - name: Remove uploaded visual model
-      run: rm M-CLIP/XLM-Roberta-Large-Vit-B-32/visual/model.rknn
+      run: rm XLM-Roberta-Large-Vit-B-32/visual/model.rknn
     - name: RM cloned repo
-      run: rm -rf M-CLIP/XLM-Roberta-Large-Vit-B-32
+      run: rm -rf XLM-Roberta-Large-Vit-B-32
     - name: Clone model
-      run: git clone https://huggingface.co/immich-app/M-CLIP/XLM-Roberta-Large-Vit-L-14
+      run: git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-L-14
     - name: Run textual build script
-      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-L-14/textual/model.onnx
+      run: python build_rknn.py XLM-Roberta-Large-Vit-L-14/textual/model.onnx
     - name: Upload textual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: M-CLIP/XLM-Roberta-Large-Vit-L-14-textual.rknn
-        path: M-CLIP/XLM-Roberta-Large-Vit-L-14/textual/model.rknn
+        name: XLM-Roberta-Large-Vit-L-14-textual.rknn
+        path: XLM-Roberta-Large-Vit-L-14/textual/model.rknn
     - name: Remove uploaded textual model
-      run: rm M-CLIP/XLM-Roberta-Large-Vit-L-14/textual/model.rknn
+      run: rm XLM-Roberta-Large-Vit-L-14/textual/model.rknn
     - name: Run visual build script
-      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-L-14/visual/model.onnx
+      run: python build_rknn.py XLM-Roberta-Large-Vit-L-14/visual/model.onnx
     - name: Upload visual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: M-CLIP/XLM-Roberta-Large-Vit-L-14-visual.rknn
-        path: M-CLIP/XLM-Roberta-Large-Vit-L-14/visual/model.rknn
+        name: XLM-Roberta-Large-Vit-L-14-visual.rknn
+        path: XLM-Roberta-Large-Vit-L-14/visual/model.rknn
     - name: Remove uploaded visual model
-      run: rm M-CLIP/XLM-Roberta-Large-Vit-L-14/visual/model.rknn
+      run: rm XLM-Roberta-Large-Vit-L-14/visual/model.rknn
     - name: RM cloned repo
-      run: rm -rf M-CLIP/XLM-Roberta-Large-Vit-L-14
+      run: rm -rf XLM-Roberta-Large-Vit-L-14
     - name: Clone model
       run: git clone https://huggingface.co/immich-app/RN101__openai
     - name: Run textual build script
@@ -1041,4 +1041,4 @@ on:
     branches:
     - main
 
-# Last updated at: 2024-10-11 19:04:22 using build_yaml.py, do not edit manually
+# Last updated at: 2024-10-11 19:11:52 using build_yaml.py, do not edit manually

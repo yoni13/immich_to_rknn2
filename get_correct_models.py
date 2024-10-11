@@ -1,9 +1,10 @@
 def get_corrected_models():
+    # from machine-learning/export/run.py
     models = [
-        "M-CLIP/LABSE-Vit-L-14",
-        "M-CLIP/XLM-Roberta-Large-Vit-B-16Plus",
-        "M-CLIP/XLM-Roberta-Large-Vit-B-32",
-        "M-CLIP/XLM-Roberta-Large-Vit-L-14",
+        "LABSE-Vit-L-14",
+        "XLM-Roberta-Large-Vit-B-16Plus",
+        "XLM-Roberta-Large-Vit-B-32",
+        "XLM-Roberta-Large-Vit-L-14",
         "RN101::openai",
         "RN101::yfcc15m",
         "RN50::cc12m",
