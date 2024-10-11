@@ -13,7 +13,7 @@ for i in range(len(repo_name)):
 
     clone_step = {
         'name': 'Clone model',
-        'run': 'git clone ' + repo_url[i]
+        'run': 'git clone ' + repo_url[i] + '--depth 1 '
     }
 
     build_textual_step = {
