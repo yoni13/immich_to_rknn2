@@ -10,9 +10,9 @@ subprocess.run(["git", "lfs", "install"])
 def download_and_build_rknn(repo_name,repo_url):
     subprocess.run(["git", "clone", repo_url])
     os.chdir(repo_name)
-    if os.dir.exists("textual"):
+    if os.path.islink("textual"):
         subprocess.run(["python3", "build_rknn.py", "--model", "textual/model.onnx"])
-    if os.dir.exists("visual"):
+    if os.path.islink("visual"):
         subprocess.run(["python3", "build_rknn.py", "--model", "visual/model.onnx"])
     os.chdir("..")
     os.remove(repo_name)
