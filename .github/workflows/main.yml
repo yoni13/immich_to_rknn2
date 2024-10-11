@@ -21,7 +21,7 @@ jobs:
 
         '
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/LABSE-Vit-L-14--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/LABSE-Vit-L-14 --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py LABSE-Vit-L-14/textual/model.onnx
     - name: Upload textual artifact
@@ -43,8 +43,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf LABSE-Vit-L-14
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py XLM-Roberta-Large-Vit-B-16Plus/textual/model.onnx
     - name: Upload textual artifact
@@ -66,8 +66,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf XLM-Roberta-Large-Vit-B-16Plus
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-32--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-32
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py XLM-Roberta-Large-Vit-B-32/textual/model.onnx
     - name: Upload textual artifact
@@ -89,8 +89,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf XLM-Roberta-Large-Vit-B-32
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-L-14--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-L-14
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py XLM-Roberta-Large-Vit-L-14/textual/model.onnx
     - name: Upload textual artifact
@@ -112,7 +112,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf XLM-Roberta-Large-Vit-L-14
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/RN101__openai--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/RN101__openai --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py RN101__openai/textual/model.onnx
     - name: Upload textual artifact
@@ -134,7 +134,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf RN101__openai
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/RN101__yfcc15m--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/RN101__yfcc15m --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py RN101__yfcc15m/textual/model.onnx
     - name: Upload textual artifact
@@ -156,7 +156,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf RN101__yfcc15m
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/RN50__cc12m--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/RN50__cc12m --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py RN50__cc12m/textual/model.onnx
     - name: Upload textual artifact
@@ -178,7 +178,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf RN50__cc12m
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/RN50__openai--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/RN50__openai --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py RN50__openai/textual/model.onnx
     - name: Upload textual artifact
@@ -200,7 +200,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf RN50__openai
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/RN50__yfcc15m--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/RN50__yfcc15m --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py RN50__yfcc15m/textual/model.onnx
     - name: Upload textual artifact
@@ -222,7 +222,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf RN50__yfcc15m
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/RN50x16__openai--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/RN50x16__openai --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py RN50x16__openai/textual/model.onnx
     - name: Upload textual artifact
@@ -244,7 +244,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf RN50x16__openai
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/RN50x4__openai--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/RN50x4__openai --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py RN50x4__openai/textual/model.onnx
     - name: Upload textual artifact
@@ -266,7 +266,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf RN50x4__openai
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/RN50x64__openai--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/RN50x64__openai --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py RN50x64__openai/textual/model.onnx
     - name: Upload textual artifact
@@ -288,8 +288,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf RN50x64__openai
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-256__webli--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-256__webli
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16-SigLIP-256__webli/textual/model.onnx
     - name: Upload textual artifact
@@ -311,8 +311,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16-SigLIP-256__webli
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-384__webli--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-384__webli
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16-SigLIP-384__webli/textual/model.onnx
     - name: Upload textual artifact
@@ -334,8 +334,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16-SigLIP-384__webli
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-512__webli--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-512__webli
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16-SigLIP-512__webli/textual/model.onnx
     - name: Upload textual artifact
@@ -357,8 +357,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16-SigLIP-512__webli
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-i18n-256__webli--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-i18n-256__webli
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16-SigLIP-i18n-256__webli/textual/model.onnx
     - name: Upload textual artifact
@@ -380,7 +380,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16-SigLIP-i18n-256__webli
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP__webli--depth
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP__webli --depth
         1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16-SigLIP__webli/textual/model.onnx
@@ -403,8 +403,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16-SigLIP__webli
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e31--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e31
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16-plus-240__laion400m_e31/textual/model.onnx
     - name: Upload textual artifact
@@ -426,8 +426,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16-plus-240__laion400m_e31
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e32--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e32
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16-plus-240__laion400m_e32/textual/model.onnx
     - name: Upload textual artifact
@@ -449,7 +449,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16-plus-240__laion400m_e32
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16__laion400m_e31--depth
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16__laion400m_e31 --depth
         1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16__laion400m_e31/textual/model.onnx
@@ -472,7 +472,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16__laion400m_e31
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16__laion400m_e32--depth
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16__laion400m_e32 --depth
         1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16__laion400m_e32/textual/model.onnx
@@ -495,7 +495,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16__laion400m_e32
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-16__openai--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-16__openai --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-16__openai/textual/model.onnx
     - name: Upload textual artifact
@@ -517,8 +517,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-16__openai
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__laion2b-s34b-b79k--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__laion2b-s34b-b79k
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-32__laion2b-s34b-b79k/textual/model.onnx
     - name: Upload textual artifact
@@ -540,7 +540,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-32__laion2b-s34b-b79k
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__laion2b_e16--depth
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__laion2b_e16 --depth
         1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-32__laion2b_e16/textual/model.onnx
@@ -563,7 +563,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-32__laion2b_e16
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__laion400m_e31--depth
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__laion400m_e31 --depth
         1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-32__laion400m_e31/textual/model.onnx
@@ -586,7 +586,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-32__laion400m_e31
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__laion400m_e32--depth
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__laion400m_e32 --depth
         1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-32__laion400m_e32/textual/model.onnx
@@ -609,7 +609,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-32__laion400m_e32
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__openai--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__openai --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-B-32__openai/textual/model.onnx
     - name: Upload textual artifact
@@ -631,8 +631,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-B-32__openai
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-H-14-378-quickgelu__dfn5b--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-H-14-378-quickgelu__dfn5b
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-H-14-378-quickgelu__dfn5b/textual/model.onnx
     - name: Upload textual artifact
@@ -654,8 +654,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-H-14-378-quickgelu__dfn5b
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-H-14-quickgelu__dfn5b--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-H-14-quickgelu__dfn5b
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-H-14-quickgelu__dfn5b/textual/model.onnx
     - name: Upload textual artifact
@@ -677,8 +677,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-H-14-quickgelu__dfn5b
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-H-14__laion2b-s32b-b79k--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-H-14__laion2b-s32b-b79k
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-H-14__laion2b-s32b-b79k/textual/model.onnx
     - name: Upload textual artifact
@@ -700,7 +700,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-H-14__laion2b-s32b-b79k
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-L-14-336__openai--depth
+      run: 'git clone https://huggingface.co/immich-app/ViT-L-14-336__openai --depth
         1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-L-14-336__openai/textual/model.onnx
@@ -723,8 +723,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-L-14-336__openai
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-L-14-quickgelu__dfn2b--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-L-14-quickgelu__dfn2b
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-L-14-quickgelu__dfn2b/textual/model.onnx
     - name: Upload textual artifact
@@ -746,8 +746,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-L-14-quickgelu__dfn2b
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-L-14__laion2b-s32b-b82k--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-L-14__laion2b-s32b-b82k
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-L-14__laion2b-s32b-b82k/textual/model.onnx
     - name: Upload textual artifact
@@ -769,7 +769,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-L-14__laion2b-s32b-b82k
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-L-14__laion400m_e31--depth
+      run: 'git clone https://huggingface.co/immich-app/ViT-L-14__laion400m_e31 --depth
         1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-L-14__laion400m_e31/textual/model.onnx
@@ -792,7 +792,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-L-14__laion400m_e31
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-L-14__laion400m_e32--depth
+      run: 'git clone https://huggingface.co/immich-app/ViT-L-14__laion400m_e32 --depth
         1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-L-14__laion400m_e32/textual/model.onnx
@@ -815,7 +815,7 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-L-14__laion400m_e32
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-L-14__openai--depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-L-14__openai --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-L-14__openai/textual/model.onnx
     - name: Upload textual artifact
@@ -837,8 +837,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-L-14__openai
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-L-16-SigLIP-256__webli--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-L-16-SigLIP-256__webli
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-L-16-SigLIP-256__webli/textual/model.onnx
     - name: Upload textual artifact
@@ -860,8 +860,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-L-16-SigLIP-256__webli
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-L-16-SigLIP-384__webli/textual/model.onnx
     - name: Upload textual artifact
@@ -883,8 +883,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-L-16-SigLIP-384__webli
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-SO400M-14-SigLIP-384__webli--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-SO400M-14-SigLIP-384__webli
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-SO400M-14-SigLIP-384__webli/textual/model.onnx
     - name: Upload textual artifact
@@ -906,8 +906,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-SO400M-14-SigLIP-384__webli
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-g-14__laion2b-s12b-b42k--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/ViT-g-14__laion2b-s12b-b42k
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py ViT-g-14__laion2b-s12b-b42k/textual/model.onnx
     - name: Upload textual artifact
@@ -929,8 +929,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf ViT-g-14__laion2b-s12b-b42k
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/nllb-clip-base-siglip__mrl--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/nllb-clip-base-siglip__mrl
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py nllb-clip-base-siglip__mrl/textual/model.onnx
     - name: Upload textual artifact
@@ -952,8 +952,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf nllb-clip-base-siglip__mrl
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/nllb-clip-base-siglip__v1--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/nllb-clip-base-siglip__v1
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py nllb-clip-base-siglip__v1/textual/model.onnx
     - name: Upload textual artifact
@@ -975,8 +975,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf nllb-clip-base-siglip__v1
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/nllb-clip-large-siglip__mrl--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/nllb-clip-large-siglip__mrl
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py nllb-clip-large-siglip__mrl/textual/model.onnx
     - name: Upload textual artifact
@@ -998,8 +998,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf nllb-clip-large-siglip__mrl
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/nllb-clip-large-siglip__v1--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/nllb-clip-large-siglip__v1
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py nllb-clip-large-siglip__v1/textual/model.onnx
     - name: Upload textual artifact
@@ -1021,8 +1021,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf nllb-clip-large-siglip__v1
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k/textual/model.onnx
     - name: Upload textual artifact
@@ -1044,8 +1044,8 @@ jobs:
     - name: RM cloned repo
       run: rm -rf xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k--depth
-        1 '
+      run: 'git clone https://huggingface.co/immich-app/xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k
+        --depth 1 '
     - name: Run textual build script
       run: python build_rknn.py xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k/textual/model.onnx
     - name: Upload textual artifact
@@ -1073,4 +1073,4 @@ on:
     branches:
     - main
 
-# Last updated at: 2024-10-11 20:07:54 using build_yaml.py, do not edit manually
+# Last updated at: 2024-10-11 20:11:32 using build_yaml.py, do not edit manually
