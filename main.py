@@ -14,6 +14,5 @@ def download_and_build_rknn(repo_name,repo_url):
     #     subprocess.run(["python3", "../build_rknn.py", "visual/model.onnx"])
     subprocess.run(["ls"])
     os.chdir("..")
-    shutil.rmtree(repo_name)
 
 download_and_build_rknn("ViT-L-16-SigLIP-384__webli","https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli")
