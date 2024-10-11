@@ -27,7 +27,7 @@ if ret != 0:
     print("Build failed!")
     exit(ret)
 
-ret = rknn.export_rknn(ONNX_MODEL)
+ret = rknn.export_rknn(ONNX_MODEL.replace('onnx','rknn'))
 if ret != 0:
         print('Export rknn model failed!')
         exit(ret)
