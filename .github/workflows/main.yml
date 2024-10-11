@@ -34,7 +34,7 @@ jobs:
       run: python main.py
       
     - name: Upload artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ViT-L-16-SigLIP-384__webli
         path: |
