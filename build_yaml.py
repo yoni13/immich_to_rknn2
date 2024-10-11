@@ -1,13 +1,13 @@
 import yaml
 import time
+from get_correct_models import get_corrected_models
 
 # 讀取 YAML 檔案
 with open('base.yml', 'r') as file:
     data = yaml.safe_load(file)
     file.close()
 
-repo_name = ['ViT-L-16-SigLIP-384__webli']
-repo_url = ['https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli']
+repo_name, repo_url = get_corrected_models()
 
 for i in range(len(repo_name)):
 

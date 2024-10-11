@@ -23,6 +23,820 @@ jobs:
 
         '
     - name: Clone model
+      run: git clone https://huggingface.co/immich-app/M-CLIP/LABSE-Vit-L-14
+    - name: Run textual build script
+      run: python build_rknn.py M-CLIP/LABSE-Vit-L-14/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: M-CLIP/LABSE-Vit-L-14-textual.rknn
+        path: M-CLIP/LABSE-Vit-L-14/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm M-CLIP/LABSE-Vit-L-14/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py M-CLIP/LABSE-Vit-L-14/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: M-CLIP/LABSE-Vit-L-14-visual.rknn
+        path: M-CLIP/LABSE-Vit-L-14/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm M-CLIP/LABSE-Vit-L-14/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf M-CLIP/LABSE-Vit-L-14
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/M-CLIP/XLM-Roberta-Large-Vit-B-16Plus
+    - name: Run textual build script
+      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: M-CLIP/XLM-Roberta-Large-Vit-B-16Plus-textual.rknn
+        path: M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: M-CLIP/XLM-Roberta-Large-Vit-B-16Plus-visual.rknn
+        path: M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm M-CLIP/XLM-Roberta-Large-Vit-B-16Plus/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf M-CLIP/XLM-Roberta-Large-Vit-B-16Plus
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/M-CLIP/XLM-Roberta-Large-Vit-B-32
+    - name: Run textual build script
+      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-B-32/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: M-CLIP/XLM-Roberta-Large-Vit-B-32-textual.rknn
+        path: M-CLIP/XLM-Roberta-Large-Vit-B-32/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm M-CLIP/XLM-Roberta-Large-Vit-B-32/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-B-32/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: M-CLIP/XLM-Roberta-Large-Vit-B-32-visual.rknn
+        path: M-CLIP/XLM-Roberta-Large-Vit-B-32/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm M-CLIP/XLM-Roberta-Large-Vit-B-32/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf M-CLIP/XLM-Roberta-Large-Vit-B-32
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/M-CLIP/XLM-Roberta-Large-Vit-L-14
+    - name: Run textual build script
+      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-L-14/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: M-CLIP/XLM-Roberta-Large-Vit-L-14-textual.rknn
+        path: M-CLIP/XLM-Roberta-Large-Vit-L-14/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm M-CLIP/XLM-Roberta-Large-Vit-L-14/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py M-CLIP/XLM-Roberta-Large-Vit-L-14/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: M-CLIP/XLM-Roberta-Large-Vit-L-14-visual.rknn
+        path: M-CLIP/XLM-Roberta-Large-Vit-L-14/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm M-CLIP/XLM-Roberta-Large-Vit-L-14/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf M-CLIP/XLM-Roberta-Large-Vit-L-14
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/RN101__openai
+    - name: Run textual build script
+      run: python build_rknn.py RN101__openai/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN101__openai-textual.rknn
+        path: RN101__openai/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm RN101__openai/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py RN101__openai/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN101__openai-visual.rknn
+        path: RN101__openai/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm RN101__openai/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf RN101__openai
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/RN101__yfcc15m
+    - name: Run textual build script
+      run: python build_rknn.py RN101__yfcc15m/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN101__yfcc15m-textual.rknn
+        path: RN101__yfcc15m/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm RN101__yfcc15m/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py RN101__yfcc15m/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN101__yfcc15m-visual.rknn
+        path: RN101__yfcc15m/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm RN101__yfcc15m/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf RN101__yfcc15m
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/RN50__cc12m
+    - name: Run textual build script
+      run: python build_rknn.py RN50__cc12m/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50__cc12m-textual.rknn
+        path: RN50__cc12m/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm RN50__cc12m/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py RN50__cc12m/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50__cc12m-visual.rknn
+        path: RN50__cc12m/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm RN50__cc12m/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf RN50__cc12m
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/RN50__openai
+    - name: Run textual build script
+      run: python build_rknn.py RN50__openai/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50__openai-textual.rknn
+        path: RN50__openai/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm RN50__openai/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py RN50__openai/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50__openai-visual.rknn
+        path: RN50__openai/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm RN50__openai/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf RN50__openai
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/RN50__yfcc15m
+    - name: Run textual build script
+      run: python build_rknn.py RN50__yfcc15m/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50__yfcc15m-textual.rknn
+        path: RN50__yfcc15m/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm RN50__yfcc15m/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py RN50__yfcc15m/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50__yfcc15m-visual.rknn
+        path: RN50__yfcc15m/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm RN50__yfcc15m/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf RN50__yfcc15m
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/RN50x16__openai
+    - name: Run textual build script
+      run: python build_rknn.py RN50x16__openai/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50x16__openai-textual.rknn
+        path: RN50x16__openai/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm RN50x16__openai/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py RN50x16__openai/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50x16__openai-visual.rknn
+        path: RN50x16__openai/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm RN50x16__openai/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf RN50x16__openai
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/RN50x4__openai
+    - name: Run textual build script
+      run: python build_rknn.py RN50x4__openai/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50x4__openai-textual.rknn
+        path: RN50x4__openai/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm RN50x4__openai/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py RN50x4__openai/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50x4__openai-visual.rknn
+        path: RN50x4__openai/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm RN50x4__openai/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf RN50x4__openai
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/RN50x64__openai
+    - name: Run textual build script
+      run: python build_rknn.py RN50x64__openai/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50x64__openai-textual.rknn
+        path: RN50x64__openai/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm RN50x64__openai/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py RN50x64__openai/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: RN50x64__openai-visual.rknn
+        path: RN50x64__openai/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm RN50x64__openai/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf RN50x64__openai
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-256__webli
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16-SigLIP-256__webli/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP-256__webli-textual.rknn
+        path: ViT-B-16-SigLIP-256__webli/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16-SigLIP-256__webli/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16-SigLIP-256__webli/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP-256__webli-visual.rknn
+        path: ViT-B-16-SigLIP-256__webli/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16-SigLIP-256__webli/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16-SigLIP-256__webli
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-384__webli
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16-SigLIP-384__webli/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP-384__webli-textual.rknn
+        path: ViT-B-16-SigLIP-384__webli/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16-SigLIP-384__webli/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16-SigLIP-384__webli/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP-384__webli-visual.rknn
+        path: ViT-B-16-SigLIP-384__webli/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16-SigLIP-384__webli/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16-SigLIP-384__webli
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-512__webli
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16-SigLIP-512__webli/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP-512__webli-textual.rknn
+        path: ViT-B-16-SigLIP-512__webli/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16-SigLIP-512__webli/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16-SigLIP-512__webli/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP-512__webli-visual.rknn
+        path: ViT-B-16-SigLIP-512__webli/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16-SigLIP-512__webli/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16-SigLIP-512__webli
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP-i18n-256__webli
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16-SigLIP-i18n-256__webli/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP-i18n-256__webli-textual.rknn
+        path: ViT-B-16-SigLIP-i18n-256__webli/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16-SigLIP-i18n-256__webli/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16-SigLIP-i18n-256__webli/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP-i18n-256__webli-visual.rknn
+        path: ViT-B-16-SigLIP-i18n-256__webli/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16-SigLIP-i18n-256__webli/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16-SigLIP-i18n-256__webli
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16-SigLIP__webli
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16-SigLIP__webli/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP__webli-textual.rknn
+        path: ViT-B-16-SigLIP__webli/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16-SigLIP__webli/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16-SigLIP__webli/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-SigLIP__webli-visual.rknn
+        path: ViT-B-16-SigLIP__webli/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16-SigLIP__webli/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16-SigLIP__webli
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e31
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16-plus-240__laion400m_e31/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-plus-240__laion400m_e31-textual.rknn
+        path: ViT-B-16-plus-240__laion400m_e31/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16-plus-240__laion400m_e31/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16-plus-240__laion400m_e31/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-plus-240__laion400m_e31-visual.rknn
+        path: ViT-B-16-plus-240__laion400m_e31/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16-plus-240__laion400m_e31/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16-plus-240__laion400m_e31
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e32
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16-plus-240__laion400m_e32/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-plus-240__laion400m_e32-textual.rknn
+        path: ViT-B-16-plus-240__laion400m_e32/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16-plus-240__laion400m_e32/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16-plus-240__laion400m_e32/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16-plus-240__laion400m_e32-visual.rknn
+        path: ViT-B-16-plus-240__laion400m_e32/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16-plus-240__laion400m_e32/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16-plus-240__laion400m_e32
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16__laion400m_e31
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16__laion400m_e31/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16__laion400m_e31-textual.rknn
+        path: ViT-B-16__laion400m_e31/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16__laion400m_e31/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16__laion400m_e31/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16__laion400m_e31-visual.rknn
+        path: ViT-B-16__laion400m_e31/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16__laion400m_e31/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16__laion400m_e31
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16__laion400m_e32
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16__laion400m_e32/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16__laion400m_e32-textual.rknn
+        path: ViT-B-16__laion400m_e32/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16__laion400m_e32/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16__laion400m_e32/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16__laion400m_e32-visual.rknn
+        path: ViT-B-16__laion400m_e32/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16__laion400m_e32/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16__laion400m_e32
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-16__openai
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-16__openai/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16__openai-textual.rknn
+        path: ViT-B-16__openai/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-16__openai/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-16__openai/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-16__openai-visual.rknn
+        path: ViT-B-16__openai/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-16__openai/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-16__openai
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-32__laion2b-s34b-b79k
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-32__laion2b-s34b-b79k/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__laion2b-s34b-b79k-textual.rknn
+        path: ViT-B-32__laion2b-s34b-b79k/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-32__laion2b-s34b-b79k/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-32__laion2b-s34b-b79k/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__laion2b-s34b-b79k-visual.rknn
+        path: ViT-B-32__laion2b-s34b-b79k/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-32__laion2b-s34b-b79k/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-32__laion2b-s34b-b79k
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-32__laion2b_e16
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-32__laion2b_e16/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__laion2b_e16-textual.rknn
+        path: ViT-B-32__laion2b_e16/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-32__laion2b_e16/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-32__laion2b_e16/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__laion2b_e16-visual.rknn
+        path: ViT-B-32__laion2b_e16/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-32__laion2b_e16/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-32__laion2b_e16
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-32__laion400m_e31
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-32__laion400m_e31/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__laion400m_e31-textual.rknn
+        path: ViT-B-32__laion400m_e31/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-32__laion400m_e31/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-32__laion400m_e31/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__laion400m_e31-visual.rknn
+        path: ViT-B-32__laion400m_e31/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-32__laion400m_e31/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-32__laion400m_e31
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-32__laion400m_e32
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-32__laion400m_e32/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__laion400m_e32-textual.rknn
+        path: ViT-B-32__laion400m_e32/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-32__laion400m_e32/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-32__laion400m_e32/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__laion400m_e32-visual.rknn
+        path: ViT-B-32__laion400m_e32/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-32__laion400m_e32/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-32__laion400m_e32
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-B-32__openai
+    - name: Run textual build script
+      run: python build_rknn.py ViT-B-32__openai/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__openai-textual.rknn
+        path: ViT-B-32__openai/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-B-32__openai/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-B-32__openai/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__openai-visual.rknn
+        path: ViT-B-32__openai/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-B-32__openai/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-B-32__openai
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-H-14-378-quickgelu__dfn5b
+    - name: Run textual build script
+      run: python build_rknn.py ViT-H-14-378-quickgelu__dfn5b/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-H-14-378-quickgelu__dfn5b-textual.rknn
+        path: ViT-H-14-378-quickgelu__dfn5b/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-H-14-378-quickgelu__dfn5b/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-H-14-378-quickgelu__dfn5b/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-H-14-378-quickgelu__dfn5b-visual.rknn
+        path: ViT-H-14-378-quickgelu__dfn5b/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-H-14-378-quickgelu__dfn5b/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-H-14-378-quickgelu__dfn5b
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-H-14-quickgelu__dfn5b
+    - name: Run textual build script
+      run: python build_rknn.py ViT-H-14-quickgelu__dfn5b/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-H-14-quickgelu__dfn5b-textual.rknn
+        path: ViT-H-14-quickgelu__dfn5b/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-H-14-quickgelu__dfn5b/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-H-14-quickgelu__dfn5b/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-H-14-quickgelu__dfn5b-visual.rknn
+        path: ViT-H-14-quickgelu__dfn5b/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-H-14-quickgelu__dfn5b/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-H-14-quickgelu__dfn5b
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-H-14__laion2b-s32b-b79k
+    - name: Run textual build script
+      run: python build_rknn.py ViT-H-14__laion2b-s32b-b79k/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-H-14__laion2b-s32b-b79k-textual.rknn
+        path: ViT-H-14__laion2b-s32b-b79k/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-H-14__laion2b-s32b-b79k/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-H-14__laion2b-s32b-b79k/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-H-14__laion2b-s32b-b79k-visual.rknn
+        path: ViT-H-14__laion2b-s32b-b79k/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-H-14__laion2b-s32b-b79k/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-H-14__laion2b-s32b-b79k
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-L-14-336__openai
+    - name: Run textual build script
+      run: python build_rknn.py ViT-L-14-336__openai/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14-336__openai-textual.rknn
+        path: ViT-L-14-336__openai/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-L-14-336__openai/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-L-14-336__openai/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14-336__openai-visual.rknn
+        path: ViT-L-14-336__openai/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-L-14-336__openai/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-L-14-336__openai
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-L-14-quickgelu__dfn2b
+    - name: Run textual build script
+      run: python build_rknn.py ViT-L-14-quickgelu__dfn2b/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14-quickgelu__dfn2b-textual.rknn
+        path: ViT-L-14-quickgelu__dfn2b/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-L-14-quickgelu__dfn2b/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-L-14-quickgelu__dfn2b/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14-quickgelu__dfn2b-visual.rknn
+        path: ViT-L-14-quickgelu__dfn2b/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-L-14-quickgelu__dfn2b/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-L-14-quickgelu__dfn2b
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-L-14__laion2b-s32b-b82k
+    - name: Run textual build script
+      run: python build_rknn.py ViT-L-14__laion2b-s32b-b82k/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14__laion2b-s32b-b82k-textual.rknn
+        path: ViT-L-14__laion2b-s32b-b82k/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-L-14__laion2b-s32b-b82k/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-L-14__laion2b-s32b-b82k/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14__laion2b-s32b-b82k-visual.rknn
+        path: ViT-L-14__laion2b-s32b-b82k/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-L-14__laion2b-s32b-b82k/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-L-14__laion2b-s32b-b82k
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-L-14__laion400m_e31
+    - name: Run textual build script
+      run: python build_rknn.py ViT-L-14__laion400m_e31/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14__laion400m_e31-textual.rknn
+        path: ViT-L-14__laion400m_e31/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-L-14__laion400m_e31/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-L-14__laion400m_e31/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14__laion400m_e31-visual.rknn
+        path: ViT-L-14__laion400m_e31/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-L-14__laion400m_e31/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-L-14__laion400m_e31
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-L-14__laion400m_e32
+    - name: Run textual build script
+      run: python build_rknn.py ViT-L-14__laion400m_e32/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14__laion400m_e32-textual.rknn
+        path: ViT-L-14__laion400m_e32/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-L-14__laion400m_e32/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-L-14__laion400m_e32/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14__laion400m_e32-visual.rknn
+        path: ViT-L-14__laion400m_e32/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-L-14__laion400m_e32/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-L-14__laion400m_e32
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-L-14__openai
+    - name: Run textual build script
+      run: python build_rknn.py ViT-L-14__openai/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14__openai-textual.rknn
+        path: ViT-L-14__openai/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-L-14__openai/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-L-14__openai/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-14__openai-visual.rknn
+        path: ViT-L-14__openai/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-L-14__openai/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-L-14__openai
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-L-16-SigLIP-256__webli
+    - name: Run textual build script
+      run: python build_rknn.py ViT-L-16-SigLIP-256__webli/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-16-SigLIP-256__webli-textual.rknn
+        path: ViT-L-16-SigLIP-256__webli/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-L-16-SigLIP-256__webli/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-L-16-SigLIP-256__webli/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-L-16-SigLIP-256__webli-visual.rknn
+        path: ViT-L-16-SigLIP-256__webli/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-L-16-SigLIP-256__webli/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-L-16-SigLIP-256__webli
+    - name: Clone model
       run: git clone https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli
     - name: Run textual build script
       run: python build_rknn.py ViT-L-16-SigLIP-384__webli/textual/model.onnx
@@ -42,6 +856,182 @@ jobs:
         path: ViT-L-16-SigLIP-384__webli/visual/model.rknn
     - name: Remove uploaded visual model
       run: rm ViT-L-16-SigLIP-384__webli/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-L-16-SigLIP-384__webli
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-SO400M-14-SigLIP-384__webli
+    - name: Run textual build script
+      run: python build_rknn.py ViT-SO400M-14-SigLIP-384__webli/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-SO400M-14-SigLIP-384__webli-textual.rknn
+        path: ViT-SO400M-14-SigLIP-384__webli/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-SO400M-14-SigLIP-384__webli/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-SO400M-14-SigLIP-384__webli/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-SO400M-14-SigLIP-384__webli-visual.rknn
+        path: ViT-SO400M-14-SigLIP-384__webli/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-SO400M-14-SigLIP-384__webli/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-SO400M-14-SigLIP-384__webli
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/ViT-g-14__laion2b-s12b-b42k
+    - name: Run textual build script
+      run: python build_rknn.py ViT-g-14__laion2b-s12b-b42k/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-g-14__laion2b-s12b-b42k-textual.rknn
+        path: ViT-g-14__laion2b-s12b-b42k/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm ViT-g-14__laion2b-s12b-b42k/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py ViT-g-14__laion2b-s12b-b42k/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-g-14__laion2b-s12b-b42k-visual.rknn
+        path: ViT-g-14__laion2b-s12b-b42k/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm ViT-g-14__laion2b-s12b-b42k/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf ViT-g-14__laion2b-s12b-b42k
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/nllb-clip-base-siglip__mrl
+    - name: Run textual build script
+      run: python build_rknn.py nllb-clip-base-siglip__mrl/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nllb-clip-base-siglip__mrl-textual.rknn
+        path: nllb-clip-base-siglip__mrl/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm nllb-clip-base-siglip__mrl/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py nllb-clip-base-siglip__mrl/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nllb-clip-base-siglip__mrl-visual.rknn
+        path: nllb-clip-base-siglip__mrl/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm nllb-clip-base-siglip__mrl/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf nllb-clip-base-siglip__mrl
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/nllb-clip-base-siglip__v1
+    - name: Run textual build script
+      run: python build_rknn.py nllb-clip-base-siglip__v1/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nllb-clip-base-siglip__v1-textual.rknn
+        path: nllb-clip-base-siglip__v1/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm nllb-clip-base-siglip__v1/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py nllb-clip-base-siglip__v1/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nllb-clip-base-siglip__v1-visual.rknn
+        path: nllb-clip-base-siglip__v1/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm nllb-clip-base-siglip__v1/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf nllb-clip-base-siglip__v1
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/nllb-clip-large-siglip__mrl
+    - name: Run textual build script
+      run: python build_rknn.py nllb-clip-large-siglip__mrl/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nllb-clip-large-siglip__mrl-textual.rknn
+        path: nllb-clip-large-siglip__mrl/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm nllb-clip-large-siglip__mrl/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py nllb-clip-large-siglip__mrl/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nllb-clip-large-siglip__mrl-visual.rknn
+        path: nllb-clip-large-siglip__mrl/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm nllb-clip-large-siglip__mrl/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf nllb-clip-large-siglip__mrl
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/nllb-clip-large-siglip__v1
+    - name: Run textual build script
+      run: python build_rknn.py nllb-clip-large-siglip__v1/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nllb-clip-large-siglip__v1-textual.rknn
+        path: nllb-clip-large-siglip__v1/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm nllb-clip-large-siglip__v1/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py nllb-clip-large-siglip__v1/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nllb-clip-large-siglip__v1-visual.rknn
+        path: nllb-clip-large-siglip__v1/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm nllb-clip-large-siglip__v1/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf nllb-clip-large-siglip__v1
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
+    - name: Run textual build script
+      run: python build_rknn.py xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k-textual.rknn
+        path: xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k-visual.rknn
+        path: xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k/visual/model.rknn
+    - name: RM cloned repo
+      run: rm -rf xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
+    - name: Clone model
+      run: git clone https://huggingface.co/immich-app/xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k
+    - name: Run textual build script
+      run: python build_rknn.py xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k/textual/model.onnx
+    - name: Upload textual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k-textual.rknn
+        path: xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k/textual/model.rknn
+    - name: Remove uploaded textual model
+      run: rm xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k/textual/model.rknn
+    - name: Run visual build script
+      run: python build_rknn.py xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k/visual/model.onnx
+    - name: Upload visual artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k-visual.rknn
+        path: xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k/visual/model.rknn
+    - name: Remove uploaded visual model
+      run: rm xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k/visual/model.rknn
 name: Run Python Build Script
 on:
   pull_request:
@@ -51,4 +1041,4 @@ on:
     branches:
     - main
 
-# Last updated at: 2024-10-11 18:54:11 using build_yaml.py, do not edit manually
+# Last updated at: 2024-10-11 19:04:22 using build_yaml.py, do not edit manually
