@@ -9,9 +9,9 @@ def download_and_build_rknn(repo_name,repo_url):
     subprocess.run(["git", "clone", repo_url])
     os.chdir(repo_name)
     if os.path.exists("textual"):
-        subprocess.run(["python3", "build_rknn.py", "--model", "textual/model.onnx"])
+        subprocess.run(["python3", "../../build_rknn.py", "--model", "textual/model.onnx"])
     if os.path.exists("visual"):
-        subprocess.run(["python3", "build_rknn.py", "--model", "visual/model.onnx"])
+        subprocess.run(["python3", "../../build_rknn.py", "--model", "visual/model.onnx"])
     subprocess.run(["ls"])
     os.chdir("..")
     shutil.rmtree(repo_name)
