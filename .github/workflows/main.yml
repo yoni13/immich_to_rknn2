@@ -39,4 +39,4 @@ jobs:
         name: ViT-L-16-SigLIP-384__webli
         path: |
           ViT-L-16-SigLIP-384__webli/textual/model.rknn
-          ViT-L-16-SigLIP-384__webli/visual/model.rknn
+          # ViT-L-16-SigLIP-384__webli/visual/model.rknn
