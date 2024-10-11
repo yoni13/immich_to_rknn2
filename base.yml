@@ -20,6 +20,6 @@ jobs:
         pip install -r requirements.txt
         python3 -m pip install --upgrade pip setuptools
         sudo apt-get update -y
-        sudo apt-get install git libsm6 libxext6 -y
+        sudo apt-get install git libsm6 -y
         git lfs install
 
