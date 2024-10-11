@@ -3,9 +3,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: 3.x
     - name: Install dependencies
@@ -51,4 +51,4 @@ on:
     branches:
     - main
 
-# Last updated at: 2024-10-11 18:42:55 using build_yaml.py, do not edit manually
+# Last updated at: 2024-10-11 18:54:11 using build_yaml.py, do not edit manually
