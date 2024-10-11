@@ -30,7 +30,7 @@ for i in range(len(repo_name)):
         'name': 'Upload textual artifact',
         'uses': 'actions/upload-artifact@v4',
         'with': {
-            'name': 'rknn-model'+str(i),
+            'name': repo_name[i]+'-textual.rknn',
             'path': repo_name[i]+'/textual/model.rknn'
         }
     }
@@ -39,7 +39,7 @@ for i in range(len(repo_name)):
         'name': 'Upload visual artifact',
         'uses': 'actions/upload-artifact@v4',
         'with': {
-            'name': 'rknn-model'+str(i),
+            'name': repo_name[i]+'-visual.rknn',
             'path': repo_name[i]+'/visual/model.rknn'
         }
     }
@@ -88,5 +88,5 @@ with open('.github/workflows/main.yml', 'a') as file:
     
     # add time to the end of the file
     file.write('\n\n')
-    file.write(f'# Last updated at: {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())}')
+    file.write(f'# Last updated at: {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())} using build_yaml.py, do not edit manually')
     file.close()

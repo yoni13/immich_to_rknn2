@@ -29,7 +29,7 @@ jobs:
     - name: Upload textual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: rknn-model0
+        name: ViT-L-16-SigLIP-384__webli-textual.rknn
         path: ViT-L-16-SigLIP-384__webli/textual/model.rknn
     - name: Remove uploaded textual model
       run: rm ViT-L-16-SigLIP-384__webli/textual/model.rknn
@@ -38,7 +38,7 @@ jobs:
     - name: Upload visual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: rknn-model0
+        name: ViT-L-16-SigLIP-384__webli-visual.rknn
         path: ViT-L-16-SigLIP-384__webli/visual/model.rknn
     - name: Remove uploaded visual model
       run: rm ViT-L-16-SigLIP-384__webli/visual/model.rknn
@@ -51,4 +51,4 @@ on:
     branches:
     - main
 
-# Last updated at: 2024-10-11 18:34:57
+# Last updated at: 2024-10-11 18:42:55 using build_yaml.py, do not edit manually
