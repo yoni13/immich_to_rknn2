@@ -21,7 +21,7 @@ if ret != 0:
     exit(ret)
 
 
-ret = rknn.build(do_quantization=True)
+ret = rknn.build(do_quantization=False)
 
 if ret != 0:
     print("Build failed!")
