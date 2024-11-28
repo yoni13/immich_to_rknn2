@@ -81,10 +81,10 @@ with open('.github/workflows/main.yml', 'a') as file:
     file.write('''on:
   pull_request:
     branches:
-    - main
+    - facial
   push:
     branches:
-    - main''')
+    - facial''')
     
     # add time to the end of the file
     file.write('\n\n')
