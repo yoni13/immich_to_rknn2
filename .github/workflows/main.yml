@@ -21,27 +21,27 @@ jobs:
 
         '
     - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/buffalo_1 --depth 1 '
+      run: 'git clone https://huggingface.co/immich-app/buffalo_l --depth 1 '
     - name: Run textual build script
-      run: python build_rknn.py buffalo_1/textual/model.onnx
+      run: python build_rknn.py buffalo_l/textual/model.onnx
     - name: Upload textual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_1-textual.rknn
-        path: buffalo_1/textual/model.rknn
+        name: buffalo_l-textual.rknn
+        path: buffalo_l/textual/model.rknn
     - name: Remove uploaded textual model
-      run: rm buffalo_1/textual/model.rknn
+      run: rm buffalo_l/textual/model.rknn
     - name: Run visual build script
-      run: python build_rknn.py buffalo_1/visual/model.onnx
+      run: python build_rknn.py buffalo_l/visual/model.onnx
     - name: Upload visual artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_1-visual.rknn
-        path: buffalo_1/visual/model.rknn
+        name: buffalo_l-visual.rknn
+        path: buffalo_l/visual/model.rknn
     - name: Remove uploaded visual model
-      run: rm buffalo_1/visual/model.rknn
+      run: rm buffalo_l/visual/model.rknn
     - name: RM cloned repo
-      run: rm -rf buffalo_1
+      run: rm -rf buffalo_l
     - name: Clone model
       run: 'git clone https://huggingface.co/immich-app/antelopev2 --depth 1 '
     - name: Run textual build script
@@ -159,4 +159,4 @@ on:
     branches:
     - facial
 
-# Last updated at: 2024-11-28 09:52:01 using build_yaml.py, do not edit manually
+# Last updated at: 2024-11-28 09:56:18 using build_yaml.py, do not edit manually
