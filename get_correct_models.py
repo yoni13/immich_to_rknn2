@@ -1,6 +1,6 @@
 def get_corrected_models():
     # from machine-learning/export/run.py
-    models = [
+    models = ['''
         "LABSE-Vit-L-14",
         "XLM-Roberta-Large-Vit-B-16Plus",
         "XLM-Roberta-Large-Vit-B-32",
@@ -46,7 +46,14 @@ def get_corrected_models():
         "nllb-clip-large-siglip::mrl",
         "nllb-clip-large-siglip::v1",
         "xlm-roberta-base-ViT-B-32::laion5b_s13b_b90k",
-        "xlm-roberta-large-ViT-H-14::frozen_laion5b_s13b_b90k",
+        "xlm-roberta-large-ViT-H-14::frozen_laion5b_s13b_b90k",'''
+        
+        "buffalo_1",
+        "antelopev2",
+        "buffalo_s",
+        "buffalo_m",
+        "buffalo_l_batch",
+        "scrfd_34g_gnkps"
     ]
 
     corrected = []
