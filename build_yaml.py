@@ -16,54 +16,54 @@ for i in range(len(repo_name)):
         'run': 'git clone ' + repo_url[i] + ' --depth 1 '
     }
 
-    build_textual_step = {
-        'name': 'Run textual build script',
-        'run': 'python build_rknn.py '+ repo_name[i] + '/textual/model.onnx'
+    build_detection_step = {
+        'name': 'Run detection build script',
+        'run': 'python build_rknn.py '+ repo_name[i] + '/detection/model.onnx'
     }
 
-    build_visual_step = {
-        'name': 'Run visual build script',
-        'run': 'python build_rknn.py '+ repo_name[i] + '/visual/model.onnx'
+    build_recognition_step = {
+        'name': 'Run recognition build script',
+        'run': 'python build_rknn.py '+ repo_name[i] + '/recognition/model.onnx'
     }
 
-    upload_textual_step = {
-        'name': 'Upload textual artifact',
+    upload_detection_step = {
+        'name': 'Upload detection artifact',
         'uses': 'actions/upload-artifact@v4',
         'with': {
-            'name': repo_name[i]+'-textual.rknn',
-            'path': repo_name[i]+'/textual/model.rknn'
+            'name': repo_name[i]+'-detection.rknn',
+            'path': repo_name[i]+'/detection/model.rknn'
         }
     }
 
-    upload_visual_step = {
-        'name': 'Upload visual artifact',
+    upload_recognition_step = {
+        'name': 'Upload recognition artifact',
         'uses': 'actions/upload-artifact@v4',
         'with': {
-            'name': repo_name[i]+'-visual.rknn',
-            'path': repo_name[i]+'/visual/model.rknn'
+            'name': repo_name[i]+'-recognition.rknn',
+            'path': repo_name[i]+'/recognition/model.rknn'
         }
     }
 
-    rm_textual_model_step = {
-        'name': 'Remove uploaded textual model',
-        'run': 'rm ' + repo_name[i] + '/textual/model.rknn'
+    rm_detection_model_step = {
+        'name': 'Remove uploaded detection model',
+        'run': 'rm ' + repo_name[i] + '/detection/model.rknn'
     }
 
-    rm_visual_model_step = {
-        'name': 'Remove uploaded visual model',
-        'run': 'rm ' + repo_name[i] + '/visual/model.rknn'
+    rm_recognition_model_step = {
+        'name': 'Remove uploaded recognition model',
+        'run': 'rm ' + repo_name[i] + '/recognition/model.rknn'
     }
 
 
     data['jobs']['run-python-script']['steps'].append(clone_step)
 
-    data['jobs']['run-python-script']['steps'].append(build_textual_step)
-    data['jobs']['run-python-script']['steps'].append(upload_textual_step)
-    data['jobs']['run-python-script']['steps'].append(rm_textual_model_step)
+    data['jobs']['run-python-script']['steps'].append(build_detection_step)
+    data['jobs']['run-python-script']['steps'].append(upload_detection_step)
+    data['jobs']['run-python-script']['steps'].append(rm_detection_model_step)
 
-    data['jobs']['run-python-script']['steps'].append(build_visual_step)
-    data['jobs']['run-python-script']['steps'].append(upload_visual_step)
-    data['jobs']['run-python-script']['steps'].append(rm_visual_model_step)
+    data['jobs']['run-python-script']['steps'].append(build_recognition_step)
+    data['jobs']['run-python-script']['steps'].append(upload_recognition_step)
+    data['jobs']['run-python-script']['steps'].append(rm_recognition_model_step)
 
     if i != (len(repo_name) - 1):
         data['jobs']['run-python-script']['steps'].append({

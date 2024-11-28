@@ -22,134 +22,134 @@ jobs:
         '
     - name: Clone model
       run: 'git clone https://huggingface.co/immich-app/buffalo_l --depth 1 '
-    - name: Run textual build script
-      run: python build_rknn.py buffalo_l/textual/model.onnx
-    - name: Upload textual artifact
+    - name: Run detection build script
+      run: python build_rknn.py buffalo_l/detection/model.onnx
+    - name: Upload detection artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_l-textual.rknn
-        path: buffalo_l/textual/model.rknn
-    - name: Remove uploaded textual model
-      run: rm buffalo_l/textual/model.rknn
-    - name: Run visual build script
-      run: python build_rknn.py buffalo_l/visual/model.onnx
-    - name: Upload visual artifact
+        name: buffalo_l-detection.rknn
+        path: buffalo_l/detection/model.rknn
+    - name: Remove uploaded detection model
+      run: rm buffalo_l/detection/model.rknn
+    - name: Run recognition build script
+      run: python build_rknn.py buffalo_l/recognition/model.onnx
+    - name: Upload recognition artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_l-visual.rknn
-        path: buffalo_l/visual/model.rknn
-    - name: Remove uploaded visual model
-      run: rm buffalo_l/visual/model.rknn
+        name: buffalo_l-recognition.rknn
+        path: buffalo_l/recognition/model.rknn
+    - name: Remove uploaded recognition model
+      run: rm buffalo_l/recognition/model.rknn
     - name: RM cloned repo
       run: rm -rf buffalo_l
     - name: Clone model
       run: 'git clone https://huggingface.co/immich-app/antelopev2 --depth 1 '
-    - name: Run textual build script
-      run: python build_rknn.py antelopev2/textual/model.onnx
-    - name: Upload textual artifact
+    - name: Run detection build script
+      run: python build_rknn.py antelopev2/detection/model.onnx
+    - name: Upload detection artifact
       uses: actions/upload-artifact@v4
       with:
-        name: antelopev2-textual.rknn
-        path: antelopev2/textual/model.rknn
-    - name: Remove uploaded textual model
-      run: rm antelopev2/textual/model.rknn
-    - name: Run visual build script
-      run: python build_rknn.py antelopev2/visual/model.onnx
-    - name: Upload visual artifact
+        name: antelopev2-detection.rknn
+        path: antelopev2/detection/model.rknn
+    - name: Remove uploaded detection model
+      run: rm antelopev2/detection/model.rknn
+    - name: Run recognition build script
+      run: python build_rknn.py antelopev2/recognition/model.onnx
+    - name: Upload recognition artifact
       uses: actions/upload-artifact@v4
       with:
-        name: antelopev2-visual.rknn
-        path: antelopev2/visual/model.rknn
-    - name: Remove uploaded visual model
-      run: rm antelopev2/visual/model.rknn
+        name: antelopev2-recognition.rknn
+        path: antelopev2/recognition/model.rknn
+    - name: Remove uploaded recognition model
+      run: rm antelopev2/recognition/model.rknn
     - name: RM cloned repo
       run: rm -rf antelopev2
     - name: Clone model
       run: 'git clone https://huggingface.co/immich-app/buffalo_s --depth 1 '
-    - name: Run textual build script
-      run: python build_rknn.py buffalo_s/textual/model.onnx
-    - name: Upload textual artifact
+    - name: Run detection build script
+      run: python build_rknn.py buffalo_s/detection/model.onnx
+    - name: Upload detection artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_s-textual.rknn
-        path: buffalo_s/textual/model.rknn
-    - name: Remove uploaded textual model
-      run: rm buffalo_s/textual/model.rknn
-    - name: Run visual build script
-      run: python build_rknn.py buffalo_s/visual/model.onnx
-    - name: Upload visual artifact
+        name: buffalo_s-detection.rknn
+        path: buffalo_s/detection/model.rknn
+    - name: Remove uploaded detection model
+      run: rm buffalo_s/detection/model.rknn
+    - name: Run recognition build script
+      run: python build_rknn.py buffalo_s/recognition/model.onnx
+    - name: Upload recognition artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_s-visual.rknn
-        path: buffalo_s/visual/model.rknn
-    - name: Remove uploaded visual model
-      run: rm buffalo_s/visual/model.rknn
+        name: buffalo_s-recognition.rknn
+        path: buffalo_s/recognition/model.rknn
+    - name: Remove uploaded recognition model
+      run: rm buffalo_s/recognition/model.rknn
     - name: RM cloned repo
       run: rm -rf buffalo_s
     - name: Clone model
       run: 'git clone https://huggingface.co/immich-app/buffalo_m --depth 1 '
-    - name: Run textual build script
-      run: python build_rknn.py buffalo_m/textual/model.onnx
-    - name: Upload textual artifact
+    - name: Run detection build script
+      run: python build_rknn.py buffalo_m/detection/model.onnx
+    - name: Upload detection artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_m-textual.rknn
-        path: buffalo_m/textual/model.rknn
-    - name: Remove uploaded textual model
-      run: rm buffalo_m/textual/model.rknn
-    - name: Run visual build script
-      run: python build_rknn.py buffalo_m/visual/model.onnx
-    - name: Upload visual artifact
+        name: buffalo_m-detection.rknn
+        path: buffalo_m/detection/model.rknn
+    - name: Remove uploaded detection model
+      run: rm buffalo_m/detection/model.rknn
+    - name: Run recognition build script
+      run: python build_rknn.py buffalo_m/recognition/model.onnx
+    - name: Upload recognition artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_m-visual.rknn
-        path: buffalo_m/visual/model.rknn
-    - name: Remove uploaded visual model
-      run: rm buffalo_m/visual/model.rknn
+        name: buffalo_m-recognition.rknn
+        path: buffalo_m/recognition/model.rknn
+    - name: Remove uploaded recognition model
+      run: rm buffalo_m/recognition/model.rknn
     - name: RM cloned repo
       run: rm -rf buffalo_m
     - name: Clone model
       run: 'git clone https://huggingface.co/immich-app/buffalo_l_batch --depth 1 '
-    - name: Run textual build script
-      run: python build_rknn.py buffalo_l_batch/textual/model.onnx
-    - name: Upload textual artifact
+    - name: Run detection build script
+      run: python build_rknn.py buffalo_l_batch/detection/model.onnx
+    - name: Upload detection artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_l_batch-textual.rknn
-        path: buffalo_l_batch/textual/model.rknn
-    - name: Remove uploaded textual model
-      run: rm buffalo_l_batch/textual/model.rknn
-    - name: Run visual build script
-      run: python build_rknn.py buffalo_l_batch/visual/model.onnx
-    - name: Upload visual artifact
+        name: buffalo_l_batch-detection.rknn
+        path: buffalo_l_batch/detection/model.rknn
+    - name: Remove uploaded detection model
+      run: rm buffalo_l_batch/detection/model.rknn
+    - name: Run recognition build script
+      run: python build_rknn.py buffalo_l_batch/recognition/model.onnx
+    - name: Upload recognition artifact
       uses: actions/upload-artifact@v4
       with:
-        name: buffalo_l_batch-visual.rknn
-        path: buffalo_l_batch/visual/model.rknn
-    - name: Remove uploaded visual model
-      run: rm buffalo_l_batch/visual/model.rknn
+        name: buffalo_l_batch-recognition.rknn
+        path: buffalo_l_batch/recognition/model.rknn
+    - name: Remove uploaded recognition model
+      run: rm buffalo_l_batch/recognition/model.rknn
     - name: RM cloned repo
       run: rm -rf buffalo_l_batch
     - name: Clone model
       run: 'git clone https://huggingface.co/immich-app/scrfd_34g_gnkps --depth 1 '
-    - name: Run textual build script
-      run: python build_rknn.py scrfd_34g_gnkps/textual/model.onnx
-    - name: Upload textual artifact
+    - name: Run detection build script
+      run: python build_rknn.py scrfd_34g_gnkps/detection/model.onnx
+    - name: Upload detection artifact
       uses: actions/upload-artifact@v4
       with:
-        name: scrfd_34g_gnkps-textual.rknn
-        path: scrfd_34g_gnkps/textual/model.rknn
-    - name: Remove uploaded textual model
-      run: rm scrfd_34g_gnkps/textual/model.rknn
-    - name: Run visual build script
-      run: python build_rknn.py scrfd_34g_gnkps/visual/model.onnx
-    - name: Upload visual artifact
+        name: scrfd_34g_gnkps-detection.rknn
+        path: scrfd_34g_gnkps/detection/model.rknn
+    - name: Remove uploaded detection model
+      run: rm scrfd_34g_gnkps/detection/model.rknn
+    - name: Run recognition build script
+      run: python build_rknn.py scrfd_34g_gnkps/recognition/model.onnx
+    - name: Upload recognition artifact
       uses: actions/upload-artifact@v4
       with:
-        name: scrfd_34g_gnkps-visual.rknn
-        path: scrfd_34g_gnkps/visual/model.rknn
-    - name: Remove uploaded visual model
-      run: rm scrfd_34g_gnkps/visual/model.rknn
+        name: scrfd_34g_gnkps-recognition.rknn
+        path: scrfd_34g_gnkps/recognition/model.rknn
+    - name: Remove uploaded recognition model
+      run: rm scrfd_34g_gnkps/recognition/model.rknn
 name: Run Python Build Script
 on:
   pull_request:
@@ -159,4 +159,4 @@ on:
     branches:
     - facial
 
-# Last updated at: 2024-11-28 09:56:18 using build_yaml.py, do not edit manually
+# Last updated at: 2024-11-28 10:01:14 using build_yaml.py, do not edit manually
