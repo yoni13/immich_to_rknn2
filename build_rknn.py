@@ -13,7 +13,7 @@ if not ONNX_MODEL:
 
 from rknn.api import RKNN
 rknn = RKNN(verbose=False)
-rknn.config(target_platform='rk3566')
+rknn.config(target_platform='rk3566',dyanmic_input=True)
 ret = rknn.load_onnx(model=ONNX_MODEL)
 
 if ret != 0:
