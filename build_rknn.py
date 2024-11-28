@@ -13,8 +13,9 @@ if not ONNX_MODEL:
 
 from rknn.api import RKNN
 rknn = RKNN(verbose=False)
-rknn.config(target_platform='rk3566',dynamic_input=True)
-ret = rknn.load_onnx(model=ONNX_MODEL)
+rknn.config(target_platform='rk3566')
+ret = rknn.load_onnx(model=ONNX_MODEL,input_size_list=(1, 3, 640, 640))
+# input size is from immich/machine-learning/ann/export/run.py
 
 if ret != 0:
     print("Load failed!")

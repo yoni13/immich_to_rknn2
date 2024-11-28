@@ -128,28 +128,6 @@ jobs:
         path: buffalo_l_batch/recognition/model.rknn
     - name: Remove uploaded recognition model
       run: rm buffalo_l_batch/recognition/model.rknn
-    - name: RM cloned repo
-      run: rm -rf buffalo_l_batch
-    - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/scrfd_34g_gnkps --depth 1 '
-    - name: Run detection build script
-      run: python build_rknn.py scrfd_34g_gnkps/detection/model.onnx
-    - name: Upload detection artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: scrfd_34g_gnkps-detection.rknn
-        path: scrfd_34g_gnkps/detection/model.rknn
-    - name: Remove uploaded detection model
-      run: rm scrfd_34g_gnkps/detection/model.rknn
-    - name: Run recognition build script
-      run: python build_rknn.py scrfd_34g_gnkps/recognition/model.onnx
-    - name: Upload recognition artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: scrfd_34g_gnkps-recognition.rknn
-        path: scrfd_34g_gnkps/recognition/model.rknn
-    - name: Remove uploaded recognition model
-      run: rm scrfd_34g_gnkps/recognition/model.rknn
 name: Run Python Build Script
 on:
   pull_request:
@@ -159,4 +137,4 @@ on:
     branches:
     - facial
 
-# Last updated at: 2024-11-28 10:01:14 using build_yaml.py, do not edit manually
+# Last updated at: 2024-11-28 10:22:26 using build_yaml.py, do not edit manually
