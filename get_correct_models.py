@@ -48,10 +48,10 @@ def get_corrected_models():
         # "xlm-roberta-base-ViT-B-32::laion5b_s13b_b90k",
         # "xlm-roberta-large-ViT-H-14::frozen_laion5b_s13b_b90k",
         "buffalo_l",
-        "antelopev2",
-        "buffalo_s",
-        "buffalo_m",
-        "buffalo_l_batch",
+        # "antelopev2",
+        # "buffalo_s",
+        # "buffalo_m",
+        # "buffalo_l_batch",
         # "scrfd_34g_gnkps" # idk what is this
     ]
 
