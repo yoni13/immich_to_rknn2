@@ -14,9 +14,9 @@ if not ONNX_MODEL:
 from rknn.api import RKNN
 rknn = RKNN(verbose=False)
 if 'detection' in ONNX_MODEL:
-     rknn.config(target_platform='rk3566',dynamic_input=[[[1, 3, 640, 640]]])
+     rknn.config(target_platform='rk3566', dynamic_input=[[[1, 3, 640, 640]]])
 else:
-     rknn.config(target_platform='rk3566',dynamic_input=[[[1, 3, 112, 112]]])
+     rknn.config(target_platform='rk3566', dynamic_input=[[[1, 3, 112, 112]], [[4, 3, 112, 112]], [[8, 3, 112, 112]]])
 ret = rknn.load_onnx(model=ONNX_MODEL)
 # input size is from immich/machine-learning/ann/export/run.py
 
