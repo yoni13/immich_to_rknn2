@@ -3,6 +3,7 @@ import argparse
 
 parser = argparse.ArgumentParser("simple_example")
 parser.add_argument("model", help="Path of the model that will be exported to rknn format.", type=str)
+parser.add_argument("target_platform", help="target platform ex:rk3566", type=str)
 args = parser.parse_args()
 
 ONNX_MODEL = args.model
@@ -14,11 +15,10 @@ if not ONNX_MODEL:
 from rknn.api import RKNN
 rknn = RKNN(verbose=False)
 if 'detection' in ONNX_MODEL:
-     rknn.config(target_platform='rk3566', dynamic_input=[[[1, 3, 640, 640]]])
+     rknn.config(target_platform=args.target_platform, dynamic_input=[[[1, 3, 640, 640]]])
 else:
-     rknn.config(target_platform='rk3566', dynamic_input=[[[1, 3, 112, 112]], [[4, 3, 112, 112]], [[8, 3, 112, 112]]])
+     rknn.config(target_platform=args.target_platform, dynamic_input=[[[1, 3, 112, 112]], [[4, 3, 112, 112]], [[8, 3, 112, 112]]])
 ret = rknn.load_onnx(model=ONNX_MODEL)
-# input size is from immich/machine-learning/ann/export/run.py
 
 if ret != 0:
     print("Load failed!")
@@ -30,9 +30,8 @@ if ret != 0:
     print("Build failed!")
     exit(ret)
 
-ret = rknn.export_rknn(ONNX_MODEL.replace('onnx','rknn'))
+ret = rknn.export_rknn(ONNX_MODEL.replace('model.onnx',f'model_{args.target_platform}.rknn'))
 if ret != 0:
         print('Export rknn model failed!')
         exit(ret)
 print('done')
-
