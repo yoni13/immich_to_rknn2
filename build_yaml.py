@@ -2,80 +2,78 @@ import yaml
 import time
 from get_correct_models import get_corrected_models
 
-# 讀取 YAML 檔案
+# Define target platforms
+target_platforms = ['rk3566', 'rk3588']
+
+# Read the base YAML file
 with open('base.yml', 'r') as file:
     data = yaml.safe_load(file)
-    file.close()
 
 repo_name, repo_url = get_corrected_models()
 
 for i in range(len(repo_name)):
-
     clone_step = {
-        'name': 'Clone model',
-        'run': 'git clone ' + repo_url[i] + ' --depth 1 '
+        'name': f'Clone model {repo_name[i]}',
+        'run': f'git clone {repo_url[i]} --depth 1 {repo_name[i]}'
     }
-
-    build_textual_step = {
-        'name': 'Run textual build script',
-        'run': 'python build_rknn.py '+ repo_name[i] + '/textual/model.onnx'
-    }
-
-    build_visual_step = {
-        'name': 'Run visual build script',
-        'run': 'python build_rknn.py '+ repo_name[i] + '/visual/model.onnx'
-    }
-
-    upload_textual_step = {
-        'name': 'Upload textual artifact',
-        'uses': 'actions/upload-artifact@v4',
-        'with': {
-            'name': repo_name[i]+'-textual.rknn',
-            'path': repo_name[i]+'/textual/model.rknn'
-        }
-    }
-
-    upload_visual_step = {
-        'name': 'Upload visual artifact',
-        'uses': 'actions/upload-artifact@v4',
-        'with': {
-            'name': repo_name[i]+'-visual.rknn',
-            'path': repo_name[i]+'/visual/model.rknn'
-        }
-    }
-
-    rm_textual_model_step = {
-        'name': 'Remove uploaded textual model',
-        'run': 'rm ' + repo_name[i] + '/textual/model.rknn'
-    }
-
-    rm_visual_model_step = {
-        'name': 'Remove uploaded visual model',
-        'run': 'rm ' + repo_name[i] + '/visual/model.rknn'
-    }
-
-
     data['jobs']['run-python-script']['steps'].append(clone_step)
 
-    data['jobs']['run-python-script']['steps'].append(build_textual_step)
-    data['jobs']['run-python-script']['steps'].append(upload_textual_step)
-    data['jobs']['run-python-script']['steps'].append(rm_textual_model_step)
+    for platform in target_platforms:
+        build_textual_step = {
+            'name': f'Run textual build script for {repo_name[i]} on {platform}',
+            'run': f'python3 build_rknn.py {repo_name[i]}/textual/model.onnx {platform}'
+        }
 
-    data['jobs']['run-python-script']['steps'].append(build_visual_step)
-    data['jobs']['run-python-script']['steps'].append(upload_visual_step)
-    data['jobs']['run-python-script']['steps'].append(rm_visual_model_step)
+        build_visual_step = {
+            'name': f'Run visual build script for {repo_name[i]} on {platform}',
+            'run': f'python3 build_rknn.py {repo_name[i]}/visual/model.onnx {platform}'
+        }
+
+        upload_textual_step = {
+            'name': f'Upload textual artifact for {repo_name[i]} on {platform}',
+            'uses': 'actions/upload-artifact@v4',
+            'with': {
+                'name': f'{repo_name[i]}-textual-{platform}.rknn',
+                'path': f'{repo_name[i]}/textual/model_{platform}.rknn'  # Assuming build_rknn.py names output accordingly
+            }
+        }
+
+        upload_visual_step = {
+            'name': f'Upload visual artifact for {repo_name[i]} on {platform}',
+            'uses': 'actions/upload-artifact@v4',
+            'with': {
+                'name': f'{repo_name[i]}-visual-{platform}.rknn',
+                'path': f'{repo_name[i]}/visual/model_{platform}.rknn' # Assuming build_rknn.py names output accordingly
+            }
+        }
+
+        rm_textual_model_step = {
+            'name': f'Remove uploaded textual model for {repo_name[i]} on {platform}',
+            'run': f'rm {repo_name[i]}/textual/model_{platform}.rknn'
+        }
+
+        rm_visual_model_step = {
+            'name': f'Remove uploaded visual model for {repo_name[i]} on {platform}',
+            'run': f'rm {repo_name[i]}/visual/model_{platform}.rknn'
+        }
+
+        data['jobs']['run-python-script']['steps'].append(build_textual_step)
+        data['jobs']['run-python-script']['steps'].append(upload_textual_step)
+        data['jobs']['run-python-script']['steps'].append(rm_textual_model_step)
+
+        data['jobs']['run-python-script']['steps'].append(build_visual_step)
+        data['jobs']['run-python-script']['steps'].append(upload_visual_step)
+        data['jobs']['run-python-script']['steps'].append(rm_visual_model_step)
 
     if i != (len(repo_name) - 1):
         data['jobs']['run-python-script']['steps'].append({
-            'name': 'RM cloned repo',
-            'run': 'rm -rf ' + repo_name[i]
+            'name': f'RM cloned repo {repo_name[i]}',
+            'run': f'rm -rf {repo_name[i]}'
         })
 
-
-# 寫回 YAML 檔案
+# Write back to the YAML file
 with open('.github/workflows/main.yml', 'w') as file:
     yaml.safe_dump(data, file)
-    file.close()
 
 with open('.github/workflows/main.yml', 'a') as file:
     file.write('''on:
@@ -85,8 +83,5 @@ with open('.github/workflows/main.yml', 'a') as file:
   push:
     branches:
     - main''')
-    
-    # add time to the end of the file
     file.write('\n\n')
     file.write(f'# Last updated at: {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())} using build_yaml.py, do not edit manually')
-    file.close()

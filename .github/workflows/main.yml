@@ -20,26 +20,45 @@ jobs:
         git lfs install
 
         '
-    - name: Clone model
-      run: 'git clone https://huggingface.co/immich-app/ViT-B-32__openai --depth 1 '
-    - name: Run textual build script
-      run: python build_rknn.py ViT-B-32__openai/textual/model.onnx
-    - name: Upload textual artifact
+    - name: Clone model ViT-B-32__openai
+      run: git clone https://huggingface.co/immich-app/ViT-B-32__openai --depth 1
+        ViT-B-32__openai
+    - name: Run textual build script for ViT-B-32__openai on rk3566
+      run: python3 build_rknn.py ViT-B-32__openai/textual/model.onnx rk3566
+    - name: Upload textual artifact for ViT-B-32__openai on rk3566
       uses: actions/upload-artifact@v4
       with:
-        name: ViT-B-32__openai-textual.rknn
-        path: ViT-B-32__openai/textual/model.rknn
-    - name: Remove uploaded textual model
-      run: rm ViT-B-32__openai/textual/model.rknn
-    - name: Run visual build script
-      run: python build_rknn.py ViT-B-32__openai/visual/model.onnx
-    - name: Upload visual artifact
+        name: ViT-B-32__openai-textual-rk3566.rknn
+        path: ViT-B-32__openai/textual/model_rk3566.rknn
+    - name: Remove uploaded textual model for ViT-B-32__openai on rk3566
+      run: rm ViT-B-32__openai/textual/model_rk3566.rknn
+    - name: Run visual build script for ViT-B-32__openai on rk3566
+      run: python3 build_rknn.py ViT-B-32__openai/visual/model.onnx rk3566
+    - name: Upload visual artifact for ViT-B-32__openai on rk3566
       uses: actions/upload-artifact@v4
       with:
-        name: ViT-B-32__openai-visual.rknn
-        path: ViT-B-32__openai/visual/model.rknn
-    - name: Remove uploaded visual model
-      run: rm ViT-B-32__openai/visual/model.rknn
+        name: ViT-B-32__openai-visual-rk3566.rknn
+        path: ViT-B-32__openai/visual/model_rk3566.rknn
+    - name: Remove uploaded visual model for ViT-B-32__openai on rk3566
+      run: rm ViT-B-32__openai/visual/model_rk3566.rknn
+    - name: Run textual build script for ViT-B-32__openai on rk3588
+      run: python3 build_rknn.py ViT-B-32__openai/textual/model.onnx rk3588
+    - name: Upload textual artifact for ViT-B-32__openai on rk3588
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__openai-textual-rk3588.rknn
+        path: ViT-B-32__openai/textual/model_rk3588.rknn
+    - name: Remove uploaded textual model for ViT-B-32__openai on rk3588
+      run: rm ViT-B-32__openai/textual/model_rk3588.rknn
+    - name: Run visual build script for ViT-B-32__openai on rk3588
+      run: python3 build_rknn.py ViT-B-32__openai/visual/model.onnx rk3588
+    - name: Upload visual artifact for ViT-B-32__openai on rk3588
+      uses: actions/upload-artifact@v4
+      with:
+        name: ViT-B-32__openai-visual-rk3588.rknn
+        path: ViT-B-32__openai/visual/model_rk3588.rknn
+    - name: Remove uploaded visual model for ViT-B-32__openai on rk3588
+      run: rm ViT-B-32__openai/visual/model_rk3588.rknn
 name: Run Python Build Script
 on:
   pull_request:
@@ -49,4 +68,4 @@ on:
     branches:
     - main
 
-# Last updated at: 2024-11-30 13:37:45 using build_yaml.py, do not edit manually
+# Last updated at: 2025-01-11 01:54:05 using build_yaml.py, do not edit manually
