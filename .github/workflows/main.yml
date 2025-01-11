@@ -22,6 +22,24 @@ jobs:
         '
     - name: Clone model buffalo_l
       run: git clone https://huggingface.co/immich-app/buffalo_l --depth 1 buffalo_l
+    - name: Run detection build script for buffalo_l on rk3562
+      run: python3 build_rknn.py buffalo_l/detection/model.onnx rk3562
+    - name: Upload detection artifact for buffalo_l on rk3562
+      uses: actions/upload-artifact@v4
+      with:
+        name: buffalo_l-detection-rk3562.rknn
+        path: buffalo_l/detection/model_rk3562.rknn
+    - name: Remove uploaded detection model for buffalo_l on rk3562
+      run: rm buffalo_l/detection/model_rk3562.rknn
+    - name: Run recognition build script for buffalo_l on rk3562
+      run: python3 build_rknn.py buffalo_l/recognition/model.onnx rk3562
+    - name: Upload recognition artifact for buffalo_l on rk3562
+      uses: actions/upload-artifact@v4
+      with:
+        name: buffalo_l-recognition-rk3562.rknn
+        path: buffalo_l/recognition/model_rk3562.rknn
+    - name: Remove uploaded recognition model for buffalo_l on rk3562
+      run: rm buffalo_l/recognition/model_rk3562.rknn
     - name: Run detection build script for buffalo_l on rk3566
       run: python3 build_rknn.py buffalo_l/detection/model.onnx rk3566
     - name: Upload detection artifact for buffalo_l on rk3566
@@ -40,6 +58,42 @@ jobs:
         path: buffalo_l/recognition/model_rk3566.rknn
     - name: Remove uploaded recognition model for buffalo_l on rk3566
       run: rm buffalo_l/recognition/model_rk3566.rknn
+    - name: Run detection build script for buffalo_l on rk3568
+      run: python3 build_rknn.py buffalo_l/detection/model.onnx rk3568
+    - name: Upload detection artifact for buffalo_l on rk3568
+      uses: actions/upload-artifact@v4
+      with:
+        name: buffalo_l-detection-rk3568.rknn
+        path: buffalo_l/detection/model_rk3568.rknn
+    - name: Remove uploaded detection model for buffalo_l on rk3568
+      run: rm buffalo_l/detection/model_rk3568.rknn
+    - name: Run recognition build script for buffalo_l on rk3568
+      run: python3 build_rknn.py buffalo_l/recognition/model.onnx rk3568
+    - name: Upload recognition artifact for buffalo_l on rk3568
+      uses: actions/upload-artifact@v4
+      with:
+        name: buffalo_l-recognition-rk3568.rknn
+        path: buffalo_l/recognition/model_rk3568.rknn
+    - name: Remove uploaded recognition model for buffalo_l on rk3568
+      run: rm buffalo_l/recognition/model_rk3568.rknn
+    - name: Run detection build script for buffalo_l on rk3576
+      run: python3 build_rknn.py buffalo_l/detection/model.onnx rk3576
+    - name: Upload detection artifact for buffalo_l on rk3576
+      uses: actions/upload-artifact@v4
+      with:
+        name: buffalo_l-detection-rk3576.rknn
+        path: buffalo_l/detection/model_rk3576.rknn
+    - name: Remove uploaded detection model for buffalo_l on rk3576
+      run: rm buffalo_l/detection/model_rk3576.rknn
+    - name: Run recognition build script for buffalo_l on rk3576
+      run: python3 build_rknn.py buffalo_l/recognition/model.onnx rk3576
+    - name: Upload recognition artifact for buffalo_l on rk3576
+      uses: actions/upload-artifact@v4
+      with:
+        name: buffalo_l-recognition-rk3576.rknn
+        path: buffalo_l/recognition/model_rk3576.rknn
+    - name: Remove uploaded recognition model for buffalo_l on rk3576
+      run: rm buffalo_l/recognition/model_rk3576.rknn
     - name: Run detection build script for buffalo_l on rk3588
       run: python3 build_rknn.py buffalo_l/detection/model.onnx rk3588
     - name: Upload detection artifact for buffalo_l on rk3588
@@ -67,4 +121,4 @@ on:
     branches:
     - facial
 
-# Last updated at: 2025-01-11 02:02:24 using build_yaml.py, do not edit manually
+# Last updated at: 2025-01-11 16:49:47 using build_yaml.py, do not edit manually
