@@ -3,7 +3,7 @@ import time
 from get_correct_models import get_corrected_models
 
 # Define target platforms
-target_platforms = ['rk3566', 'rk3588']
+target_platforms = ["rk3562", "rk3566", "rk3568", "rk3576", "rk3588"]
 
 # Read the base YAML file
 with open('base.yml', 'r') as file:
