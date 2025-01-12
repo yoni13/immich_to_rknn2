@@ -32,6 +32,10 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
     del rknn
     del RKNN
 
+    if not os.path.isfile(f'{model_path.replace("onnx","rknn")}'):
+        print(f'Dummy model not found at {model_path.replace("onnx","rknn")}, creating one')
+        with open(f'{model_path.replace("onnx","rknn")}', 'w') as f:
+            pass
 
 
 if os.path.isdir(f'{args.model}/textual') and os.path.isdir(f'{args.model}/visual'): # is a clip model
