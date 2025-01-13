@@ -46,7 +46,7 @@ if os.path.isdir(f'{args.model}/textual') and os.path.isdir(f'{args.model}/visua
 
 elif os.path.isdir(f'{args.model}/detection') and os.path.isdir(f'{args.model}/recognition'): # is a facial model
     print('Converting facial model.')
-    ConvertModel(f'{args.model}/detection/model.onnx', [[[1, 3, 640, 640]]])
+    ConvertModel(f'{args.model}/detection/model.onnx', args.target_platform, [[[1, 3, 640, 640]]])
     ConvertModel(f'{args.model}/recognition/model.onnx', args.target_platform, [[[1, 3, 112, 112]]])
 
 else:
