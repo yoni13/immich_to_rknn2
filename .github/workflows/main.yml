@@ -5,7 +5,9 @@ jobs:
     continue-on-error: true
     steps:
     - name: install dependencies
-      run: sudo apt install -y python3-pip --no-install-recommends && pip3 install -r requirements.txt
+      run: sudo apt-get update -y && sudo apt-get install -y python3-pip git -libsm6 -no-install-recommends -y && python -m pip install -r requirements.txt && git lfs install
+    - name: Download the Model
+      run: git clone ${{ matrix.model_url }} --depth 1
     - name: Run Conversion Script
       run: ./convert.sh ${{ matrix.model_name }} ${{ matrix.platform }}
     strategy:
