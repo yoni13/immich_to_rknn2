@@ -1,0 +1,334 @@
+name: RKNN Model Conversion Test
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+    - name: install dependencies
+      run: apt install -y python3-pip --no-install-recommends && pip3 install -r requirements.txt
+    - name: Run Conversion Script
+      run: ./convert.sh ${{ matrix.model_name }} ${{ matrix.platform }}
+    strategy:
+      matrix:
+        include:
+        - model_name: LABSE-Vit-L-14
+          model_url: https://huggingface.co/immich-app/LABSE-Vit-L-14
+          platform: rk3566
+        - model_name: LABSE-Vit-L-14
+          model_url: https://huggingface.co/immich-app/LABSE-Vit-L-14
+          platform: rk3588
+        - model_name: XLM-Roberta-Large-Vit-B-16Plus
+          model_url: https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
+          platform: rk3566
+        - model_name: XLM-Roberta-Large-Vit-B-16Plus
+          model_url: https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
+          platform: rk3588
+        - model_name: XLM-Roberta-Large-Vit-B-32
+          model_url: https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-32
+          platform: rk3566
+        - model_name: XLM-Roberta-Large-Vit-B-32
+          model_url: https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-32
+          platform: rk3588
+        - model_name: XLM-Roberta-Large-Vit-L-14
+          model_url: https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-L-14
+          platform: rk3566
+        - model_name: XLM-Roberta-Large-Vit-L-14
+          model_url: https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-L-14
+          platform: rk3588
+        - model_name: RN101__openai
+          model_url: https://huggingface.co/immich-app/RN101__openai
+          platform: rk3566
+        - model_name: RN101__openai
+          model_url: https://huggingface.co/immich-app/RN101__openai
+          platform: rk3588
+        - model_name: RN101__yfcc15m
+          model_url: https://huggingface.co/immich-app/RN101__yfcc15m
+          platform: rk3566
+        - model_name: RN101__yfcc15m
+          model_url: https://huggingface.co/immich-app/RN101__yfcc15m
+          platform: rk3588
+        - model_name: RN50__cc12m
+          model_url: https://huggingface.co/immich-app/RN50__cc12m
+          platform: rk3566
+        - model_name: RN50__cc12m
+          model_url: https://huggingface.co/immich-app/RN50__cc12m
+          platform: rk3588
+        - model_name: RN50__openai
+          model_url: https://huggingface.co/immich-app/RN50__openai
+          platform: rk3566
+        - model_name: RN50__openai
+          model_url: https://huggingface.co/immich-app/RN50__openai
+          platform: rk3588
+        - model_name: RN50__yfcc15m
+          model_url: https://huggingface.co/immich-app/RN50__yfcc15m
+          platform: rk3566
+        - model_name: RN50__yfcc15m
+          model_url: https://huggingface.co/immich-app/RN50__yfcc15m
+          platform: rk3588
+        - model_name: RN50x16__openai
+          model_url: https://huggingface.co/immich-app/RN50x16__openai
+          platform: rk3566
+        - model_name: RN50x16__openai
+          model_url: https://huggingface.co/immich-app/RN50x16__openai
+          platform: rk3588
+        - model_name: RN50x4__openai
+          model_url: https://huggingface.co/immich-app/RN50x4__openai
+          platform: rk3566
+        - model_name: RN50x4__openai
+          model_url: https://huggingface.co/immich-app/RN50x4__openai
+          platform: rk3588
+        - model_name: RN50x64__openai
+          model_url: https://huggingface.co/immich-app/RN50x64__openai
+          platform: rk3566
+        - model_name: RN50x64__openai
+          model_url: https://huggingface.co/immich-app/RN50x64__openai
+          platform: rk3588
+        - model_name: ViT-B-16-SigLIP-256__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP-256__webli
+          platform: rk3566
+        - model_name: ViT-B-16-SigLIP-256__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP-256__webli
+          platform: rk3588
+        - model_name: ViT-B-16-SigLIP-384__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP-384__webli
+          platform: rk3566
+        - model_name: ViT-B-16-SigLIP-384__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP-384__webli
+          platform: rk3588
+        - model_name: ViT-B-16-SigLIP-512__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP-512__webli
+          platform: rk3566
+        - model_name: ViT-B-16-SigLIP-512__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP-512__webli
+          platform: rk3588
+        - model_name: ViT-B-16-SigLIP-i18n-256__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP-i18n-256__webli
+          platform: rk3566
+        - model_name: ViT-B-16-SigLIP-i18n-256__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP-i18n-256__webli
+          platform: rk3588
+        - model_name: ViT-B-16-SigLIP__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP__webli
+          platform: rk3566
+        - model_name: ViT-B-16-SigLIP__webli
+          model_url: https://huggingface.co/immich-app/ViT-B-16-SigLIP__webli
+          platform: rk3588
+        - model_name: ViT-B-16-plus-240__laion400m_e31
+          model_url: https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e31
+          platform: rk3566
+        - model_name: ViT-B-16-plus-240__laion400m_e31
+          model_url: https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e31
+          platform: rk3588
+        - model_name: ViT-B-16-plus-240__laion400m_e32
+          model_url: https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e32
+          platform: rk3566
+        - model_name: ViT-B-16-plus-240__laion400m_e32
+          model_url: https://huggingface.co/immich-app/ViT-B-16-plus-240__laion400m_e32
+          platform: rk3588
+        - model_name: ViT-B-16__laion400m_e31
+          model_url: https://huggingface.co/immich-app/ViT-B-16__laion400m_e31
+          platform: rk3566
+        - model_name: ViT-B-16__laion400m_e31
+          model_url: https://huggingface.co/immich-app/ViT-B-16__laion400m_e31
+          platform: rk3588
+        - model_name: ViT-B-16__laion400m_e32
+          model_url: https://huggingface.co/immich-app/ViT-B-16__laion400m_e32
+          platform: rk3566
+        - model_name: ViT-B-16__laion400m_e32
+          model_url: https://huggingface.co/immich-app/ViT-B-16__laion400m_e32
+          platform: rk3588
+        - model_name: ViT-B-16__openai
+          model_url: https://huggingface.co/immich-app/ViT-B-16__openai
+          platform: rk3566
+        - model_name: ViT-B-16__openai
+          model_url: https://huggingface.co/immich-app/ViT-B-16__openai
+          platform: rk3588
+        - model_name: ViT-B-32__laion2b-s34b-b79k
+          model_url: https://huggingface.co/immich-app/ViT-B-32__laion2b-s34b-b79k
+          platform: rk3566
+        - model_name: ViT-B-32__laion2b-s34b-b79k
+          model_url: https://huggingface.co/immich-app/ViT-B-32__laion2b-s34b-b79k
+          platform: rk3588
+        - model_name: ViT-B-32__laion2b_e16
+          model_url: https://huggingface.co/immich-app/ViT-B-32__laion2b_e16
+          platform: rk3566
+        - model_name: ViT-B-32__laion2b_e16
+          model_url: https://huggingface.co/immich-app/ViT-B-32__laion2b_e16
+          platform: rk3588
+        - model_name: ViT-B-32__laion400m_e31
+          model_url: https://huggingface.co/immich-app/ViT-B-32__laion400m_e31
+          platform: rk3566
+        - model_name: ViT-B-32__laion400m_e31
+          model_url: https://huggingface.co/immich-app/ViT-B-32__laion400m_e31
+          platform: rk3588
+        - model_name: ViT-B-32__laion400m_e32
+          model_url: https://huggingface.co/immich-app/ViT-B-32__laion400m_e32
+          platform: rk3566
+        - model_name: ViT-B-32__laion400m_e32
+          model_url: https://huggingface.co/immich-app/ViT-B-32__laion400m_e32
+          platform: rk3588
+        - model_name: ViT-B-32__openai
+          model_url: https://huggingface.co/immich-app/ViT-B-32__openai
+          platform: rk3566
+        - model_name: ViT-B-32__openai
+          model_url: https://huggingface.co/immich-app/ViT-B-32__openai
+          platform: rk3588
+        - model_name: ViT-H-14-378-quickgelu__dfn5b
+          model_url: https://huggingface.co/immich-app/ViT-H-14-378-quickgelu__dfn5b
+          platform: rk3566
+        - model_name: ViT-H-14-378-quickgelu__dfn5b
+          model_url: https://huggingface.co/immich-app/ViT-H-14-378-quickgelu__dfn5b
+          platform: rk3588
+        - model_name: ViT-H-14-quickgelu__dfn5b
+          model_url: https://huggingface.co/immich-app/ViT-H-14-quickgelu__dfn5b
+          platform: rk3566
+        - model_name: ViT-H-14-quickgelu__dfn5b
+          model_url: https://huggingface.co/immich-app/ViT-H-14-quickgelu__dfn5b
+          platform: rk3588
+        - model_name: ViT-L-14-336__openai
+          model_url: https://huggingface.co/immich-app/ViT-L-14-336__openai
+          platform: rk3566
+        - model_name: ViT-L-14-336__openai
+          model_url: https://huggingface.co/immich-app/ViT-L-14-336__openai
+          platform: rk3588
+        - model_name: ViT-H-14__laion2b-s32b-b79k
+          model_url: https://huggingface.co/immich-app/ViT-H-14__laion2b-s32b-b79k
+          platform: rk3566
+        - model_name: ViT-H-14__laion2b-s32b-b79k
+          model_url: https://huggingface.co/immich-app/ViT-H-14__laion2b-s32b-b79k
+          platform: rk3588
+        - model_name: ViT-L-14-quickgelu__dfn2b
+          model_url: https://huggingface.co/immich-app/ViT-L-14-quickgelu__dfn2b
+          platform: rk3566
+        - model_name: ViT-L-14-quickgelu__dfn2b
+          model_url: https://huggingface.co/immich-app/ViT-L-14-quickgelu__dfn2b
+          platform: rk3588
+        - model_name: ViT-L-14__laion2b-s32b-b82k
+          model_url: https://huggingface.co/immich-app/ViT-L-14__laion2b-s32b-b82k
+          platform: rk3566
+        - model_name: ViT-L-14__laion2b-s32b-b82k
+          model_url: https://huggingface.co/immich-app/ViT-L-14__laion2b-s32b-b82k
+          platform: rk3588
+        - model_name: ViT-L-14__laion400m_e31
+          model_url: https://huggingface.co/immich-app/ViT-L-14__laion400m_e31
+          platform: rk3566
+        - model_name: ViT-L-14__laion400m_e31
+          model_url: https://huggingface.co/immich-app/ViT-L-14__laion400m_e31
+          platform: rk3588
+        - model_name: ViT-L-14__laion400m_e32
+          model_url: https://huggingface.co/immich-app/ViT-L-14__laion400m_e32
+          platform: rk3566
+        - model_name: ViT-L-14__laion400m_e32
+          model_url: https://huggingface.co/immich-app/ViT-L-14__laion400m_e32
+          platform: rk3588
+        - model_name: ViT-L-14__openai
+          model_url: https://huggingface.co/immich-app/ViT-L-14__openai
+          platform: rk3566
+        - model_name: ViT-L-14__openai
+          model_url: https://huggingface.co/immich-app/ViT-L-14__openai
+          platform: rk3588
+        - model_name: ViT-L-16-SigLIP-256__webli
+          model_url: https://huggingface.co/immich-app/ViT-L-16-SigLIP-256__webli
+          platform: rk3566
+        - model_name: ViT-L-16-SigLIP-256__webli
+          model_url: https://huggingface.co/immich-app/ViT-L-16-SigLIP-256__webli
+          platform: rk3588
+        - model_name: ViT-L-16-SigLIP-384__webli
+          model_url: https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli
+          platform: rk3566
+        - model_name: ViT-L-16-SigLIP-384__webli
+          model_url: https://huggingface.co/immich-app/ViT-L-16-SigLIP-384__webli
+          platform: rk3588
+        - model_name: ViT-SO400M-14-SigLIP-384__webli
+          model_url: https://huggingface.co/immich-app/ViT-SO400M-14-SigLIP-384__webli
+          platform: rk3566
+        - model_name: ViT-SO400M-14-SigLIP-384__webli
+          model_url: https://huggingface.co/immich-app/ViT-SO400M-14-SigLIP-384__webli
+          platform: rk3588
+        - model_name: ViT-g-14__laion2b-s12b-b42k
+          model_url: https://huggingface.co/immich-app/ViT-g-14__laion2b-s12b-b42k
+          platform: rk3566
+        - model_name: ViT-g-14__laion2b-s12b-b42k
+          model_url: https://huggingface.co/immich-app/ViT-g-14__laion2b-s12b-b42k
+          platform: rk3588
+        - model_name: nllb-clip-base-siglip__mrl
+          model_url: https://huggingface.co/immich-app/nllb-clip-base-siglip__mrl
+          platform: rk3566
+        - model_name: nllb-clip-base-siglip__mrl
+          model_url: https://huggingface.co/immich-app/nllb-clip-base-siglip__mrl
+          platform: rk3588
+        - model_name: nllb-clip-base-siglip__v1
+          model_url: https://huggingface.co/immich-app/nllb-clip-base-siglip__v1
+          platform: rk3566
+        - model_name: nllb-clip-base-siglip__v1
+          model_url: https://huggingface.co/immich-app/nllb-clip-base-siglip__v1
+          platform: rk3588
+        - model_name: nllb-clip-large-siglip__mrl
+          model_url: https://huggingface.co/immich-app/nllb-clip-large-siglip__mrl
+          platform: rk3566
+        - model_name: nllb-clip-large-siglip__mrl
+          model_url: https://huggingface.co/immich-app/nllb-clip-large-siglip__mrl
+          platform: rk3588
+        - model_name: nllb-clip-large-siglip__v1
+          model_url: https://huggingface.co/immich-app/nllb-clip-large-siglip__v1
+          platform: rk3566
+        - model_name: nllb-clip-large-siglip__v1
+          model_url: https://huggingface.co/immich-app/nllb-clip-large-siglip__v1
+          platform: rk3588
+        - model_name: xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
+          model_url: https://huggingface.co/immich-app/xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
+          platform: rk3566
+        - model_name: xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
+          model_url: https://huggingface.co/immich-app/xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
+          platform: rk3588
+        - model_name: xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k
+          model_url: https://huggingface.co/immich-app/xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k
+          platform: rk3566
+        - model_name: xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k
+          model_url: https://huggingface.co/immich-app/xlm-roberta-large-ViT-H-14__frozen_laion5b_s13b_b90k
+          platform: rk3588
+        - model_name: buffalo_l
+          model_url: https://huggingface.co/immich-app/buffalo_l
+          platform: rk3566
+        - model_name: buffalo_l
+          model_url: https://huggingface.co/immich-app/buffalo_l
+          platform: rk3588
+        - model_name: antelopev2
+          model_url: https://huggingface.co/immich-app/antelopev2
+          platform: rk3566
+        - model_name: antelopev2
+          model_url: https://huggingface.co/immich-app/antelopev2
+          platform: rk3588
+        - model_name: buffalo_s
+          model_url: https://huggingface.co/immich-app/buffalo_s
+          platform: rk3566
+        - model_name: buffalo_s
+          model_url: https://huggingface.co/immich-app/buffalo_s
+          platform: rk3588
+        - model_name: buffalo_m
+          model_url: https://huggingface.co/immich-app/buffalo_m
+          platform: rk3566
+        - model_name: buffalo_m
+          model_url: https://huggingface.co/immich-app/buffalo_m
+          platform: rk3588
+        - model_name: buffalo_l_batch
+          model_url: https://huggingface.co/immich-app/buffalo_l_batch
+          platform: rk3566
+        - model_name: buffalo_l_batch
+          model_url: https://huggingface.co/immich-app/buffalo_l_batch
+          platform: rk3588
+        - model_name: scrfd_34g_gnkps
+          model_url: https://huggingface.co/immich-app/scrfd_34g_gnkps
+          platform: rk3566
+        - model_name: scrfd_34g_gnkps
+          model_url: https://huggingface.co/immich-app/scrfd_34g_gnkps
+          platform: rk3588
+
+      # Define the steps that will be executed
+on:
+  pull_request:
+    branches:
+    - unificli
+  push:
+    branches:
+    - unificli
