@@ -52,7 +52,7 @@ def modify_onnx_change_op_type(input_onnx_path, output_onnx_path, old_op_type, n
 
         # Optional: Check model validity after modification
         try:
-            onnx.checker.check_model(model)
+            onnx.checker.check_model(input_onnx_path)
             print("ONNX model check passed after modification.")
         except onnx.checker.ValidationError as e:
             print(f"ONNX model check failed after modification: {e}")
@@ -83,15 +83,16 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
 
     rknn.config(target_platform=target_platform, dynamic_input=dynamic_input)
 
-    ret = rknn.reg_custom_op(RKCumSum()) #works
-    #     ret = rknn.reg_custom_op(CumSum()) # not working
-
-    if ret != 0:
-        raise RuntimeError("Register Custom OP failed!")
-
     modified_onnx_path = model_path.replace('.onnx', '_mycumsum.onnx')
     modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "RKCumSum")
     onnx_to_load = modified_onnx_path if modified else model_path
+    if modified:
+        ret = rknn.reg_custom_op(RKCumSum())
+
+        if ret != 0:
+            raise RuntimeError("Register Custom OP failed!")
+
+
     ret = rknn.load_onnx(model=onnx_to_load)
 
     if ret != 0:
