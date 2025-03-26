@@ -1,1 +1,4 @@
 rknn-toolkit2==2.3.0
+onnx
+numpy
+setuptools

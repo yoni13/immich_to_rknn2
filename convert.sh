@@ -8,6 +8,6 @@ if grep -q "No lowering found for" immich_to_rknn2.log; then
     exit 1
 else
     echo -e "\e[32mConversion completed successfully.\e[0m"
-    rm immich_to_rknn2.log
+    # rm immich_to_rknn2.log
     exit 0
 fi

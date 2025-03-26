@@ -1,14 +1,20 @@
-[tool.poetry]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
 name = "immich-to-rknn2"
 version = "0.1.0"
 description = ""
-authors = ["yoni13 <yoni980807@gmail.com>"]
+authors = [{ name = "yoni13", email = "yoni980807@gmail.com" }]
+requires-python = "~=3.12"
 readme = "README.md"
+dependencies = [
+    "numpy>=1.26.4",
+    "onnx>=1.16.1",
+    "rknn-toolkit2>=2.3.0",
+    "setuptools>=78.1.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.hatch.build.targets.wheel]
+packages = ["."]
