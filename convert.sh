@@ -2,6 +2,14 @@
 
 python3 build_rknn.py "$1" "$2" > immich_to_rknn2.log
 
+python_exit_status=$?
+
+if [ $python_exit_status -ne 0 ]; then
+    echo -e "\e[31mError: Python script failed with exit code $python_exit_status.\e[0m"
+    echo "Check immich_to_rknn2.log for Python errors or details."
+    exit $python_exit_status
+fi
+
 # if "No lowering found for" found in log file, return error status 1
 if grep -q "No lowering found for" immich_to_rknn2.log; then
     echo -e "\e[31mSome operations are not supported by RKNN, please check the log file for details.\e[0m"
