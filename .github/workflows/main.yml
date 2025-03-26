@@ -6,16 +6,14 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: 3.x
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
     - name: install dependencies
-      run: sudo apt-get update -y && sudo apt-get install -y python3-pip git libsm6 --no-install-recommends -y && python -m pip install -r requirements.txt && git lfs install
+      run: sudo apt-get update -y && sudo apt-get install -y git libsm6 --no-install-recommends -y && uv sync && git lfs install
     - name: Download the Model
       run: git clone ${{ matrix.model_url }} --depth 1
     - name: Run Conversion Script
-      run: ./convert.sh ${{ matrix.model_name }} ${{ matrix.platform }}
+      run: uv run bash ./convert.sh ${{ matrix.model_name }} ${{ matrix.platform }}
     strategy:
       matrix:
         include:
