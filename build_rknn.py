@@ -5,9 +5,9 @@ import onnx
 from numpy import cumsum
 from rknn.api.custom_op import get_node_attr
 
-class CPUCumSum:
+class cstCumSum:
     # Just CumSum with a different name so it wont conflict
-    op_type = "CPUCumSum"
+    op_type = "cstCumSum"
 
     def shape_infer(self, node, in_shapes, in_dtypes):
         return in_shapes.copy(), in_dtypes.copy()
@@ -22,11 +22,9 @@ class CPUCumSum:
 def modify_onnx_change_op_type(input_onnx_path, output_onnx_path, old_op_type, new_op_type):
     print(f"Loading ONNX model: {input_onnx_path}")
     model = onnx.load(input_onnx_path)
-    graph = model.graph
     nodes_changed = 0
-    new_nodes = []
 
-    for node in graph.node:
+    for node in model.graph.node:
         if node.op_type == old_op_type:
             print(f"  Found node '{node.name}' with op_type '{old_op_type}'. Changing to '{new_op_type}'.")
             # Create a new node with the new op_type, keeping everything else
@@ -34,24 +32,12 @@ def modify_onnx_change_op_type(input_onnx_path, output_onnx_path, old_op_type, n
             nodes_changed += 1
 
     if nodes_changed > 0:
-
-        # Optional: Check model validity after modification
-        try:
-            onnx.checker.check_model(input_onnx_path)
-            print("ONNX model check passed after modification.")
-        except onnx.checker.ValidationError as e:
-            print(f"ONNX model check failed after modification: {e}")
-            # Decide if you want to proceed despite validation error
-
         print(f"Saving modified ONNX model to: {output_onnx_path}")
         onnx.save(model, output_onnx_path)
         print(f"Successfully changed {nodes_changed} nodes from '{old_op_type}' to '{new_op_type}'.")
         return True # Indicate modification happened
     else:
         print(f"No nodes with op_type '{old_op_type}' found. No modifications made.")
-        # Copy original to output if you want the script to always produce the output file
-        # import shutil
-        # shutil.copyfile(input_onnx_path, output_onnx_path)
         return False # Indicate no modification happened
 
 
@@ -68,11 +54,11 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
 
     rknn.config(target_platform=target_platform, dynamic_input=dynamic_input)
 
-    modified_onnx_path = model_path.replace('.onnx', '_cpucumsum.onnx')
-    modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "CPUCumSum")
+    modified_onnx_path = model_path.replace('.onnx', 'cstcumsum.onnx')
+    modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "cstCumSum")
     onnx_to_load = modified_onnx_path if modified else model_path
     if modified:
-        ret = rknn.reg_custom_op(CPUCumSum())
+        ret = rknn.reg_custom_op(cstCumSum())
 
         if ret != 0:
             raise RuntimeError("Register Custom OP failed!")
