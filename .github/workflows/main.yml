@@ -11,7 +11,7 @@ jobs:
     - name: install dependencies
       run: sudo apt-get update -y && sudo apt-get install -y git libsm6 --no-install-recommends -y && uv sync && uv add huggingface_hub[cli] && git lfs install
     - name: Download the Model
-      run: uv run huggingface-cli download ${{ matrix.model_url }} --ignore-patterns=*.rknn --ignore_patterns=*.armnn
+      run: uv run huggingface-cli download ${{ matrix.model_url }} --ignore-patterns=*.rknn --ignore-patterns=*.armnn
     - name: Run Conversion Script
       run: uv run bash ./convert.sh ${{ matrix.model_name }} ${{ matrix.platform }}
     strategy:
