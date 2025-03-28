@@ -72,7 +72,7 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
     modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "CPUCumSum")
     onnx_to_load = modified_onnx_path if modified else model_path
     if modified:
-        ret = rknn.reg_custom_op(RKCumSum())
+        ret = rknn.reg_custom_op(CPUCumSum())
 
         if ret != 0:
             raise RuntimeError("Register Custom OP failed!")
