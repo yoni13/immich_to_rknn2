@@ -2,7 +2,7 @@ import argparse
 import os
 import onnx
 
-from numpy import cumsum
+from numpy import cumsum, max, exp, sum
 from rknn.api.custom_op import get_node_attr
 
 class cstCumSum:
@@ -16,6 +16,19 @@ class cstCumSum:
         x = inputs[0]
         axis = get_node_attr(node, "axis")
         return [cumsum(x, axis=axis)]
+
+class cstSoftmax:
+    op_type = 'cstSoftmax'
+    def shape_infer(self, node, in_shapes, in_dtypes):
+        out_shapes = in_shapes.copy()
+        out_dtypes = in_dtypes.copy()
+        return out_shapes, out_dtypes
+    def compute(self, node, inputs):
+        x = inputs[0]
+        axis = get_node_attr(node, 'axis')
+        x_max = max(x, axis=axis, keepdims=True)
+        tmp = exp(x - x_max)
+        s = sum(tmp, axis=axis, keepdims=True)
 
 
 # Function to modify the ONNX model
@@ -57,7 +70,7 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
     rknn.config(target_platform=target_platform, dynamic_input=dynamic_input, disable_rules=['fuse_matmul_softmax_matmul_to_sdpa'])
 
     modified_onnx_path = model_path.replace('.onnx', '_cstcumsum.onnx')
-    modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "cstCumSum")
+    modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "cstSoftmax")
     onnx_to_load = modified_onnx_path if modified else model_path
     if modified:
         ret = rknn.reg_custom_op(cstCumSum())
