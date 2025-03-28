@@ -34,6 +34,8 @@ def modify_onnx_change_op_type(input_onnx_path, output_onnx_path, old_op_type, n
     if nodes_changed > 0:
         print(f"Saving modified ONNX model to: {output_onnx_path}")
         onnx.save(model, output_onnx_path)
+        del model
+        modified_model = onnx.load(output_onnx_path) # idk if it loads
         print(f"Successfully changed {nodes_changed} nodes from '{old_op_type}' to '{new_op_type}'.")
         return True # Indicate modification happened
     else:
@@ -52,9 +54,9 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
     from rknn.api import RKNN
     rknn = RKNN(verbose=False)
 
-    rknn.config(target_platform=target_platform, dynamic_input=dynamic_input)
+    rknn.config(target_platform=target_platform, dynamic_input=dynamic_input, disable_rules=['fuse_matmul_softmax_matmul_to_sdpa'])
 
-    modified_onnx_path = model_path.replace('.onnx', 'cstcumsum.onnx')
+    modified_onnx_path = model_path.replace('.onnx', '_cstcumsum.onnx')
     modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "cstCumSum")
     onnx_to_load = modified_onnx_path if modified else model_path
     if modified:
