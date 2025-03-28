@@ -77,7 +77,7 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
         if ret != 0:
             raise RuntimeError("Register Custom OP failed!")
 
-
+    print(f"RKNN is loading ONNX :{onnx_to_load}")
     ret = rknn.load_onnx(model=onnx_to_load)
 
     if ret != 0:
