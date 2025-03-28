@@ -5,9 +5,9 @@ import onnx
 from numpy import cumsum
 from rknn.api.custom_op import get_node_attr
 
-class RKCumSum:
+class CPUCumSum:
     # Just CumSum with a different name so it wont conflict
-    op_type = "RKCumSum"
+    op_type = "CPUCumSum"
 
     def shape_infer(self, node, in_shapes, in_dtypes):
         return in_shapes.copy(), in_dtypes.copy()
@@ -30,25 +30,10 @@ def modify_onnx_change_op_type(input_onnx_path, output_onnx_path, old_op_type, n
         if node.op_type == old_op_type:
             print(f"  Found node '{node.name}' with op_type '{old_op_type}'. Changing to '{new_op_type}'.")
             # Create a new node with the new op_type, keeping everything else
-            new_node = onnx.helper.make_node(
-                new_op_type,         # New operator type
-                node.input,          # Same inputs
-                node.output,         # Same outputs
-                name=node.name,      # Keep the original name if desired
-                # Copy attributes (important for axis in CumSum)
-                **{attr.name: onnx.helper.get_attribute_value(attr) for attr in node.attribute}
-            )
-            new_nodes.append(new_node)
+            node.op_type = new_op_type
             nodes_changed += 1
-        else:
-            # Keep nodes that don't match the old_op_type
-            new_nodes.append(node)
 
     if nodes_changed > 0:
-        # Remove old nodes
-        graph.ClearField("node")
-        # Add the modified list of nodes
-        graph.node.extend(new_nodes)
 
         # Optional: Check model validity after modification
         try:
@@ -83,8 +68,8 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
 
     rknn.config(target_platform=target_platform, dynamic_input=dynamic_input)
 
-    modified_onnx_path = model_path.replace('.onnx', '_mycumsum.onnx')
-    modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "RKCumSum")
+    modified_onnx_path = model_path.replace('.onnx', '_cpucumsum.onnx')
+    modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "CPUCumSum")
     onnx_to_load = modified_onnx_path if modified else model_path
     if modified:
         ret = rknn.reg_custom_op(RKCumSum())
