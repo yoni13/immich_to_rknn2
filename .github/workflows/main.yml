@@ -9,9 +9,9 @@ jobs:
     - name: Install uv
       uses: astral-sh/setup-uv@v5
     - name: install dependencies
-      run: sudo apt-get update -y && sudo apt-get install -y git libsm6 --no-install-recommends -y && uv sync && git lfs install
+      run: sudo apt-get update -y && sudo apt-get install -y git libsm6 --no-install-recommends -y && uv sync && uv add huggingface_hub[cli] && git lfs install
     - name: Download the Model
-      run: git clone ${{ matrix.model_url }} --depth 1
+      run: huggingface-cli download ${{ matrix.model_url }} --ignore-patterns=*.rknn --ignore-patterns=*.armnn
     - name: Run Conversion Script
       run: uv run bash ./convert.sh ${{ matrix.model_name }} ${{ matrix.platform }}
     strategy:
