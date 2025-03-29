@@ -5,9 +5,9 @@ import onnx
 from numpy import cumsum, max, exp, sum
 from rknn.api.custom_op import get_node_attr
 
-class cstCumSum:
+class CumSum:
     # Just CumSum with a different name so it wont conflict
-    op_type = "cstCumSum"
+    op_type = "CumSum"
 
     def shape_infer(self, node, in_shapes, in_dtypes):
         return in_shapes.copy(), in_dtypes.copy()
@@ -16,44 +16,6 @@ class cstCumSum:
         x = inputs[0]
         axis = get_node_attr(node, "axis")
         return [cumsum(x, axis=axis)]
-
-class cstSoftmax:
-    op_type = 'cstSoftmax'
-    def shape_infer(self, node, in_shapes, in_dtypes):
-        out_shapes = in_shapes.copy()
-        out_dtypes = in_dtypes.copy()
-        return out_shapes, out_dtypes
-    def compute(self, node, inputs):
-        x = inputs[0]
-        axis = get_node_attr(node, 'axis')
-        x_max = max(x, axis=axis, keepdims=True)
-        tmp = exp(x - x_max)
-        s = sum(tmp, axis=axis, keepdims=True)
-
-
-# Function to modify the ONNX model
-def modify_onnx_change_op_type(input_onnx_path, output_onnx_path, old_op_type, new_op_type):
-    print(f"Loading ONNX model: {input_onnx_path}")
-    model = onnx.load(input_onnx_path)
-    nodes_changed = 0
-
-    for node in model.graph.node:
-        if node.op_type == old_op_type:
-            print(f"  Found node '{node.name}' with op_type '{old_op_type}'. Changing to '{new_op_type}'.")
-            # Create a new node with the new op_type, keeping everything else
-            node.op_type = new_op_type
-            nodes_changed += 1
-
-    if nodes_changed > 0:
-        print(f"Saving modified ONNX model to: {output_onnx_path}")
-        onnx.save(model, output_onnx_path)
-        del model
-        modified_model = onnx.load(output_onnx_path) # idk if it loads
-        print(f"Successfully changed {nodes_changed} nodes from '{old_op_type}' to '{new_op_type}'.")
-        return True # Indicate modification happened
-    else:
-        print(f"No nodes with op_type '{old_op_type}' found. No modifications made.")
-        return False # Indicate no modification happened
 
 
 parser = argparse.ArgumentParser("RKNN model converting")
@@ -69,11 +31,9 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
 
     rknn.config(target_platform=target_platform, dynamic_input=dynamic_input, disable_rules=['fuse_matmul_softmax_matmul_to_sdpa'])
 
-    modified_onnx_path = model_path.replace('.onnx', '_cstcumsum.onnx')
-    modified = modify_onnx_change_op_type(model_path, modified_onnx_path, "CumSum", "cstSoftmax")
-    onnx_to_load = modified_onnx_path if modified else model_path
-    if modified:
-        ret = rknn.reg_custom_op(cstCumSum())
+    onnx_to_load = model_path
+    if 1:
+        ret = rknn.reg_custom_op(CumSum())
 
         if ret != 0:
             raise RuntimeError("Register Custom OP failed!")
