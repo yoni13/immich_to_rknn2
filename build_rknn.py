@@ -32,11 +32,11 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
     rknn.config(target_platform=target_platform, dynamic_input=dynamic_input, disable_rules=['fuse_matmul_softmax_matmul_to_sdpa'])
 
     onnx_to_load = model_path
-    if 1:
-        ret = rknn.reg_custom_op(CumSum())
+    # if 1:
+    #     ret = rknn.reg_custom_op(CumSum())
 
-        if ret != 0:
-            raise RuntimeError("Register Custom OP failed!")
+    #     if ret != 0:
+    #         raise RuntimeError("Register Custom OP failed!")
 
     print(f"RKNN is loading ONNX :{onnx_to_load}")
     ret = rknn.load_onnx(model=onnx_to_load)
@@ -47,11 +47,14 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
 
     ret = rknn.build(do_quantization=False)
 
+    print(f"RKNN build reported with status {ret}")
     if ret != 0:
         print("Build failed!")
         exit(ret)
+
     print(model_path.replace('model.onnx',f'{target_platform}.rknn'))
     ret = rknn.export_rknn(model_path.replace('model.onnx',f'{target_platform}.rknn'))
+    print(f"RKNN export reported with status {ret}")
     if ret != 0:
             print('Export rknn model failed!')
             exit(ret)
