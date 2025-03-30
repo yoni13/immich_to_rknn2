@@ -23,9 +23,9 @@ jobs:
         # - model_name: LABSE-Vit-L-14
         #   model_url: https://huggingface.co/immich-app/LABSE-Vit-L-14
         #   platform: rk3588
-        - model_name: XLM-Roberta-Large-Vit-B-16Plus
-          model_url: https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
-          platform: rk3566
+        # - model_name: XLM-Roberta-Large-Vit-B-16Plus
+        #   model_url: https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
+        #   platform: rk3566
         # - model_name: XLM-Roberta-Large-Vit-B-16Plus
         #   model_url: https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
         #   platform: rk3588
@@ -281,9 +281,9 @@ jobs:
         # - model_name: nllb-clip-large-siglip__v1
         #   model_url: https://huggingface.co/immich-app/nllb-clip-large-siglip__v1
         #   platform: rk3588
-        # - model_name: xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
-        #   model_url: https://huggingface.co/immich-app/xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
-        #   platform: rk3566
+        - model_name: xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
+          model_url: https://huggingface.co/immich-app/xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
+          platform: rk3566
         # - model_name: xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
         #   model_url: https://huggingface.co/immich-app/xlm-roberta-base-ViT-B-32__laion5b_s13b_b90k
         #   platform: rk3588
