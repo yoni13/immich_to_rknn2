@@ -53,6 +53,9 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
         exit(ret)
 
     print(model_path.replace('model.onnx',f'{target_platform}.rknn'))
+    ret = rknn.init_runtime(target=target_platform, perf_debug=True)
+    perf_detail = rknn.eval_perf()
+    print(perf_detail)
     ret = rknn.export_rknn(model_path.replace('model.onnx',f'{target_platform}.rknn'))
     print(f"RKNN export reported with status {ret}")
     if ret != 0:
