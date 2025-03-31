@@ -8,7 +8,9 @@ if [ $python_exit_status -ne 0 ]; then
     echo -e "\e[31mError: Python script failed with exit code $python_exit_status.\e[0m"
     echo "Check immich_to_rknn2.log for Python errors or details."
     cat immich_to_rknn2.log
+    echo "Error_analysis.log"
     cat ./snapshot/error_analysis.txt
+    echo "Map name to file"
     cat ./snapshot/map_name_to_file.txt
     exit $python_exit_status
 fi
