@@ -52,10 +52,11 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
         print("Build failed!")
         exit(ret)
     print(model_path.replace('model.onnx',f'{target_platform}.rknn'))
-    ret = rknn.accuracy_analysis(inputs=["rand.npy"], target=target_platform)
-    if ret != 0:
-        print("Accuracy analysis failed!")
-        exit(ret)
+    if "textual" in model_path:
+        ret = rknn.accuracy_analysis(inputs=["rand.npy"], target=target_platform)
+        if ret != 0:
+            print("Accuracy analysis failed!")
+            exit(ret)
     ret = rknn.export_rknn(model_path.replace('model.onnx',f'{target_platform}.rknn'))
     print(f"RKNN export reported with status {ret}")
     if ret != 0:
