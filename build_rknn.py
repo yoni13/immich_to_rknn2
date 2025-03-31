@@ -53,7 +53,7 @@ def ConvertModel(model_path='ViT-B-32__openai/textual/model.onnx', target_platfo
         exit(ret)
     print(model_path.replace('model.onnx',f'{target_platform}.rknn'))
     if "textual" in model_path:
-        ret = rknn.accuracy_analysis(inputs=["rand.npy"], target=target_platform)
+        ret = rknn.accuracy_analysis(inputs=["rand.npy"])
         if ret != 0:
             print("Accuracy analysis failed!")
             exit(ret)
